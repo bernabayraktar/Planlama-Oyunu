@@ -9,8 +9,8 @@ namespace planlama_oyunu
     class para
     {
         OleDbConnection bağlantı = new OleDbConnection("Provider = Microsoft.Jet.OLEDB.4.0; Data Source = planlama oyunu db.mdb");
-        int para_userID { get; set; }
-        int para_miktar { get; set; }
+        public int para_userID { get; set; }
+        public int para_miktar { get; set; }
 
         public void para_başvuru(int id,int para_miktar)
         {

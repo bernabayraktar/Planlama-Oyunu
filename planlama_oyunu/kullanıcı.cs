@@ -56,7 +56,7 @@ namespace planlama_oyunu
             
             string sorgu = "update kullanıcılar set ad=@ad,soyad=@soyad,kullanıcı=@kullanıcı,şifre=@şifre,tc=@tc,telefon=@telefon,email=@email,adres=@adres where userID=@ıd";
             OleDbCommand komut = new OleDbCommand(sorgu,bağlantı);
-            //komut = new OleDbCommand(sorgu, bağlantı);
+            // komut = new OleDbCommand(sorgu, bağlantı);
             komut.Parameters.AddWithValue("@ad", this.ad);
             komut.Parameters.AddWithValue("@soyad", this.soy_ad);
             komut.Parameters.AddWithValue("@kullanıcı", this.kullanıcı_ad);

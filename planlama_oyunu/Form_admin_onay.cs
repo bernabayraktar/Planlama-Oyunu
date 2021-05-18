@@ -19,6 +19,7 @@ namespace planlama_oyunu
         }
         OleDbConnection baglantı = new OleDbConnection("Provider = Microsoft.Jet.OLEDB.4.0; Data Source = planlama oyunu db.mdb");
         OleDbCommand komut = new OleDbCommand();
+        admin admin = new admin();
         private void parabasvurugöster()
         {
             listView_para_sorgu.Items.Clear();
@@ -36,45 +37,8 @@ namespace planlama_oyunu
             }
             baglantı.Close();
         }
-        private void veri_temizle_para()
-        {
-            baglantı.Open();
-            OleDbCommand oleDb;
-            OleDbDataReader oku;
-            string sqlkodu = "delete from para_başvuru where userID=@userıd";
-            oleDb = new OleDbCommand(sqlkodu, baglantı);
-            oleDb.Parameters.AddWithValue("@userıd", txtlist_ID.Text);
-            oku = oleDb.ExecuteReader();
-            if(oku.Read())
-            {
-                sqlkodu = "delete from para_başvuru where paraID=@paraıd";
-                oleDb = new OleDbCommand(sqlkodu, baglantı);
-                oleDb.Parameters.AddWithValue("@paraıd", oku[0]);
-                oleDb.ExecuteNonQuery();
-            }
-            
-            baglantı.Close();
-        }
-        private void veri_temizle_item()
-        {
-            baglantı.Open();
-
-            OleDbCommand oleDbCommand;
-            OleDbDataReader oku;
-            string sqlkodu = "select *from item_başvuru where userID=@userıd";
-            oleDbCommand = new OleDbCommand(sqlkodu, baglantı);
-            oleDbCommand.Parameters.AddWithValue("@userıd", txt_list_item_ID.Text);
-            oku = oleDbCommand.ExecuteReader();
-           
-            if(oku.Read())
-            {
-                sqlkodu = "delete from item_başvuru where item_başvuruID=@itemid";
-                oleDbCommand = new OleDbCommand(sqlkodu, baglantı);
-                oleDbCommand.Parameters.AddWithValue("@itemid", oku[0]);
-                oleDbCommand.ExecuteNonQuery();
-            }
-            baglantı.Close();
-        }
+      
+        
         private void temizle()
         {
             txtlist_ID.Clear();
@@ -137,23 +101,19 @@ namespace planlama_oyunu
 
         private void btnParaOnay_Click(object sender, EventArgs e)
         {
-            baglantı.Open();
-            komut.Connection = baglantı;
-            komut.CommandText = "update para set para_miktar=@para where userID=@ıd";
-            komut.Parameters.AddWithValue("@para", Convert.ToInt32(txt_güncel_para.Text));
-            komut.Parameters.AddWithValue("@ıd", txtlist_ID.Text);
-            komut.ExecuteNonQuery();
-            baglantı.Close();
-            komut.Dispose();
+            
+            admin.para_onay(Convert.ToInt32(txtlist_ID.Text), Convert.ToInt32(txt_güncel_para.Text));
             MessageBox.Show(txtlist_ID.Text + "userID li kullanıcının parasını"+ txt_güncel_para.Text +"olarak güncellediniz.");
-            veri_temizle_para();
+            
+            admin.vei_temizle_para(Convert.ToInt32(txtlist_ID.Text));
             temizle();
             parabasvurugöster();
         }
 
         private void btnParaRed_Click(object sender, EventArgs e)
         {
-            veri_temizle_para();
+            
+            admin.vei_temizle_para(Convert.ToInt32(txtlist_ID.Text));
             MessageBox.Show(txtlist_ID.Text + "userID li kullanıcının para başvurusunu reddettiniz.");
             temizle();
             parabasvurugöster();
@@ -165,35 +125,36 @@ namespace planlama_oyunu
             {
                 txt_list_item_ID.Text = lst.SubItems[0].Text;
                 txt_list_item_itemad.Text = lst.SubItems[1].Text;
-                txt_list_item_itemfiyat.Text = lst.SubItems[2].Text;
-                txt_list_item_itemmiktar.Text = lst.SubItems[3].Text;
+                txt_list_item_itemmiktar.Text = lst.SubItems[2].Text;
+                txt_list_item_itemfiyat.Text = lst.SubItems[3].Text;
             }
         }
 
         private void btn_item_onay_Click(object sender, EventArgs e)
         {
-            baglantı.Open();
-            OleDbCommand dbCommand = new OleDbCommand();
-            dbCommand.Connection = baglantı;
-            dbCommand.CommandText = "insert into kullanıcı_item values('" + txt_list_item_ID.Text + "','" + txt_list_item_itemad.Text + "','" + Convert.ToInt32(txt_list_item_itemfiyat.Text) + "','" + Convert.ToInt32(txt_list_item_itemmiktar.Text) + "')";
-            dbCommand.ExecuteNonQuery();
-            baglantı.Close();
-            MessageBox.Show(txt_list_item_ID.Text + "ID li kullanıcının item başvurusunu onayladınız");
-            veri_temizle_item();
+            
+            admin.item_onay(Convert.ToInt32(txt_list_item_ID.Text), txt_list_item_itemad.Text, Convert.ToInt32(txt_list_item_itemfiyat.Text), Convert.ToInt32(txt_list_item_itemmiktar.Text));
+            MessageBox.Show(txt_list_item_ID.Text + " ID li kullanıcının item başvurusunu onayladınız");
+            
+            admin.veri_temizle_item(Convert.ToInt32(txt_list_item_ID.Text));
             temizle_item();
             itembasvurugöster();
         }
 
         private void btn_item_red_Click(object sender, EventArgs e)
         {
-            veri_temizle_item();
+            
+            admin.veri_temizle_item(Convert.ToInt32(txt_list_item_ID.Text));
+            MessageBox.Show(txt_list_item_ID.Text + " ID li kullanıcının item başvurusunu reddettiniz");
             temizle_item();
             itembasvurugöster();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btn_çıkış_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            Form_login yeni = new Form_login();
+            this.Close();
+            yeni.Show();
         }
     }
 

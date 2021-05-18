@@ -45,6 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="admin.cs" />
     <Compile Include="Form_login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -63,12 +64,6 @@
     <Compile Include="Form_bilgiler.Designer.cs">
       <DependentUpon>Form_bilgiler.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form_fiyat.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form_fiyat.Designer.cs">
-      <DependentUpon>Form_fiyat.cs</DependentUpon>
-    </Compile>
     <Compile Include="itemler.cs" />
     <Compile Include="kullanıcı.cs" />
     <Compile Include="para.cs" />
@@ -79,9 +74,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form_bilgiler.resx">
       <DependentUpon>Form_bilgiler.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Form_fiyat.resx">
-      <DependentUpon>Form_fiyat.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form_login.resx">
       <DependentUpon>Form_login.cs</DependentUpon>

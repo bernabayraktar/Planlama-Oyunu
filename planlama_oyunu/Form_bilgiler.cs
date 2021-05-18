@@ -24,11 +24,6 @@ namespace planlama_oyunu
         para para = new para();
         OleDbConnection bağlantı = new OleDbConnection("Provider = Microsoft.Jet.OLEDB.4.0; Data Source = planlama oyunu db.mdb");
         OleDbCommand komut;
-        int kullaniciID = 0;
-        int satinAlinmakIstenenMiktar;
-        int satirSayisi = 0;
-        bool urunlerGuncellendi = false;
-        public static ListViewItem item;
 
         private void cleaner()
         {
@@ -86,8 +81,27 @@ namespace planlama_oyunu
             }
             bağlantı.Close();
         }
+        void gridDoldur()
+        {
+            DataTable tablo = new DataTable();
+            OleDbConnection bağlantı = new OleDbConnection("Provider = Microsoft.Jet.OLEDB.4.0; Data Source = planlama oyunu db.mdb");
+            bağlantı.Open();
+            OleDbCommand command = new OleDbCommand("Select userID, item_ad, item_miktar, item_fiyat from kullanıcı_item where (item_ad= @itemad) and (userID <> @userid) order by item_fiyat", bağlantı);
+
+            command.Parameters.AddWithValue("@itemad", comboBox1.SelectedItem);
+            command.Parameters.AddWithValue("@userid", Form_login.usertype);
+
+            OleDbDataAdapter dataAdapter = new OleDbDataAdapter(command);
+            dataAdapter.Fill(tablo);
+            dataGridView3.DataSource = tablo;
+            this.dataGridView3.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            bağlantı.Close();
+        }
+
         private void Form_bilgiler_Load(object sender, EventArgs e)
         {
+            textBox1.Text = Form_login.usertype.ToString();
+            gridDoldur();
             listele();
         }
 
@@ -101,164 +115,122 @@ namespace planlama_oyunu
         private void btn_item_başvuru_Click(object sender, EventArgs e)
         {
             itemler.item_başvuru(Form_login.usertype, txt_item_başvuru.Text, Convert.ToInt32(txt_item_miktar.Text), Convert.ToInt32(txt_item_fiyat_başvuru.Text));
-            MessageBox.Show("Para başvuru talebiniz iletildi");
+            MessageBox.Show("Item başvuru talebiniz iletildi");
             başvuru_cleaner();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             para.para_başvuru(Form_login.usertype, Convert.ToInt32(txt_para_başvuru.Text));
-            MessageBox.Show("Item başvuru talebiniz iletildi");
+            MessageBox.Show("Para başvuru talebiniz iletildi");
             başvuru_cleaner();
         }
 
+        private void btn_çıkış_Click(object sender, EventArgs e)
+        {
+            Form_login yeni = new Form_login();
+            this.Close();
+            yeni.Show();
+        }
+        int bakiye = 0;
+        int alinanMiktar = 0;
+        int gelenParaId;
+        int gidenParaId;
+        int yollananpara = 0;
+
         private void button1_Click(object sender, EventArgs e)
         {
+            int tutar = 0;
+
+            int kalanKg = 0;
+
             bağlantı.Open();
-            int tiklayanID = Form_login.usertype;
-            int kullaniciPara;
-            int dongu = 0;
-            int ilkMiktar = 0;
-            string sql = "Select para_miktar from para where userID=" + tiklayanID;
-            int aktarilacakParaMiktari;
-            komut = new OleDbCommand(sql, bağlantı);
-            komut.ExecuteNonQuery();
-            kullaniciPara = (int)komut.ExecuteScalar();
-            if (satinAlinmakIstenenMiktar == 0)
+            OleDbCommand command = new OleDbCommand("Select * from kullanıcı_item", bağlantı);
+            OleDbDataReader oku;
+            oku = command.ExecuteReader();
+
+
+
+            while (oku.Read())
             {
-                textBox3.Text = "Dostum Satın Almak İstediğin Miktar 0 Olamaz :))";
-            }
-            if (urunlerGuncellendi == false)
-            {
-                textBox3.Text = "Ürün Satın Almak İçin Öncelikle Ürünleri Listelemelisin.";
-            }
-            while (satinAlinmakIstenenMiktar == 0)
-            {
-                if (satirSayisi > 0)
+
+
+                if (Convert.ToInt32(istenenKgTxt.Text) >= Convert.ToInt32(oku[3])) //kişinin almak istediği kg ilk satırdaki elemanın kg dan büyükse
                 {
-                    textBox3.Text = "Satın Alabileceğin Ürün Kalmadı";
+                    int fiyat1 = Convert.ToInt32(oku[3]) * Convert.ToInt32(oku[4]);
+                    //PARA KONTROL
+                    command = new OleDbCommand("Select * from para where userID=@userid", bağlantı);
+                    command.Parameters.AddWithValue("@userid", Form_login.usertype);
+                    OleDbDataReader yenioku;
+                    yenioku = command.ExecuteReader();
+                    //bakiye = fiyat1;
+                    if (yenioku.Read())
+                    {
+                        if (Convert.ToInt32(yenioku[1]) > fiyat1)
+                        {
+                            gelenParaId = Convert.ToInt32(oku[1]);
+                            yollananpara = Convert.ToInt32(oku[3]) * Convert.ToInt32(oku[4]);
+                            paraekleme();
+                            command = new OleDbCommand("update kullanıcı_item set [userID] = @userid where urunKodu = @urunkodu and item_ad = @itemad", bağlantı);
+                            command.Parameters.AddWithValue("@userid", Form_login.usertype);
+                            command.Parameters.AddWithValue("@urunkodu", oku[0]);
+                            command.Parameters.AddWithValue("@itemad", comboBox1.SelectedItem);
+                            gidenParaId = Form_login.usertype;
+                            paracikarma();
+                            command.ExecuteNonQuery();
+                            MessageBox.Show("satın alındı");
+                            gridDoldur();
+                            break;
+
+                        }
+                    }
+
+                    alinanMiktar = Convert.ToInt32(istenenKgTxt.Text) - kalanKg;
+
+
                 }
-                if (kullaniciPara == 0 || kullaniciPara < 0)
-                {
-                    textBox3.Text = "Herhangi Bir Ürünü Almak İçin Yeterli Paranız Yok.";
-                }
-                listView2.Items[dongu].Selected = true;
-                ListViewItem item = listView2.SelectedItems[dongu];
-                if (Convert.ToInt32(item.SubItems[2]) < satinAlinmakIstenenMiktar)
-                {
-                    satinAlinmakIstenenMiktar = satinAlinmakIstenenMiktar - Convert.ToInt32(item.SubItems[2]);
-                    string parasql = "Select para_miktar from para where userID =" + item.SubItems[0];
-                    komut = new OleDbCommand(parasql, bağlantı);
-                    komut.ExecuteNonQuery();
-                    ilkMiktar = (int)komut.ExecuteScalar();
-                    aktarilacakParaMiktari = Convert.ToInt32(item.SubItems[3]) + ilkMiktar;
-                    kullaniciPara = kullaniciPara - aktarilacakParaMiktari;
-                    string updateAlici = "update para set para_miktar=" + kullaniciPara + " where userID=" + kullaniciID;
-                    string updateSatici = "update para set para_miktar=" + aktarilacakParaMiktari + " where userID=" + item.SubItems[0];
-                    string satirSil = "delete from kullanici_item where userID=" + item.SubItems[0] + " and item_ad=" + item.SubItems[1] + " and item_miktar=" + item.SubItems[2] + " and item_fiyat=" + item.SubItems[3];
-                    komut = new OleDbCommand(updateAlici, bağlantı);
-                    komut.ExecuteNonQuery();
-                    komut = new OleDbCommand(updateSatici, bağlantı);
-                    komut.ExecuteNonQuery();
-                    komut = new OleDbCommand(satirSil, bağlantı);
-                    komut.ExecuteNonQuery();
-                    satirSayisi--;
-                }
-                else
-                {
-                    satinAlinmakIstenenMiktar = satinAlinmakIstenenMiktar - Convert.ToInt32(item.SubItems[2]);
 
-                    string parasql = "Select para_miktar from para where userID =" + item.SubItems[0];
-
-                    komut = new OleDbCommand(parasql, bağlantı);
-                    komut.ExecuteNonQuery();
-                    ilkMiktar = (int)komut.ExecuteScalar();
-
-                    aktarilacakParaMiktari = Convert.ToInt32(item.SubItems[3]) + ilkMiktar;
-
-                    kullaniciPara = kullaniciPara - aktarilacakParaMiktari;
-
-                    string updateAlici = "update para set para_miktar=" + kullaniciPara + " where userID=" + kullaniciID;
-                    string updateSatici = "update para set para_miktar=" + aktarilacakParaMiktari + " where userID=" + item.SubItems[0];
-                    string satirGuncelle = "delete from kullanici_item where userID=" + item.SubItems[0] + " and item_ad=" + item.SubItems[1] + " and item_miktar=" + item.SubItems[2] + " and item_fiyat=" + item.SubItems[3];
-
-                    komut = new OleDbCommand(updateAlici, bağlantı);
-                    komut.ExecuteNonQuery();
-                    komut = new OleDbCommand(updateSatici, bağlantı);
-                    komut.ExecuteNonQuery();
-                    komut = new OleDbCommand(satirGuncelle, bağlantı);
-                    komut.ExecuteNonQuery();
-                }
-                dongu++;
             }
             bağlantı.Close();
         }
+        void paraekleme()
+        {
+            OleDbCommand command = new OleDbCommand("select * from para where userID=@userid", bağlantı);
+            command.Parameters.AddWithValue("@userid", gelenParaId);
+            OleDbDataReader oku;
+            oku = command.ExecuteReader();
+            while (oku.Read())
+            {
 
+                command = new OleDbCommand("update para set [para_miktar] = @paramiktar where [userID] = @userid", bağlantı);
+                command.Parameters.AddWithValue("@paramiktar", Convert.ToInt32(oku[1]) + yollananpara);
+                command.Parameters.AddWithValue("@userid", gelenParaId);
+                command.ExecuteNonQuery();
+            }
 
+        }
+        void paracikarma()
+        {
+            OleDbCommand command = new OleDbCommand("select * from para where userID=@userid", bağlantı);
+            command.Parameters.AddWithValue("@userid", gidenParaId);
+            OleDbDataReader oku;
+            oku = command.ExecuteReader();
+            while (oku.Read())
+            {
+
+                command = new OleDbCommand("update para set [para_miktar] = @paramiktar where [userID] = @userid", bağlantı);
+                command.Parameters.AddWithValue("@paramiktar", Convert.ToInt32(oku[1]) - yollananpara);
+                command.Parameters.AddWithValue("@userid", gidenParaId);
+                command.ExecuteNonQuery();
+            }
+
+        }
 
         private void button2_Click_1(object sender, EventArgs e)
         {
-            urunlerGuncellendi = true;
-            if (kullaniciID == 0)
-            {
-                listView2.Items.Clear();
-                bağlantı.Open();
-                komut = new OleDbCommand("Select * From kullanıcı_item order by item_fiyat", bağlantı);
-                OleDbDataReader oku = komut.ExecuteReader();
-                while (oku.Read())
-                {
-                    ListViewItem item = new ListViewItem(oku["userID"].ToString());
-                    item.SubItems.Add(oku["item_ad"].ToString());
-                    item.SubItems.Add(oku["item_miktar"].ToString());
-                    item.SubItems.Add(oku["item_fiyat"].ToString());
-                    listView2.Items.Add(item);
-                    satirSayisi++;
-                }
-                bağlantı.Close();
-            }
-            else
-            {
-                listView2.Items.Clear();
-                bağlantı.Open();
-                komut = new OleDbCommand("Select * From kullanıcı_item where userID=" + kullaniciID + " order by item_fiyat", bağlantı);
-                OleDbDataReader oku = komut.ExecuteReader();
-                while (oku.Read())
-                {
-                    ListViewItem item = new ListViewItem(oku["userID"].ToString());
-                    item.SubItems.Add(oku["item_ad"].ToString());
-                    item.SubItems.Add(oku["item_miktar"].ToString());
-                    item.SubItems.Add(oku["item_fiyat"].ToString());
-                    listView2.Items.Add(item);
-                    satirSayisi++;
-                }
-                bağlantı.Close();
-            }
-        }
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-            if (textBox1.Text == "")
-            {
-                kullaniciID = 0;
-            }
-            else
-            {
-                kullaniciID = Convert.ToInt32(textBox1.Text);
-            }
+            Application.Exit();
         }
 
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-            if (textBox2.Text == "")
-            {
-                satinAlinmakIstenenMiktar = 0;
-            }
-            else
-            {
-                satinAlinmakIstenenMiktar = Convert.ToInt32(textBox2.Text);
-            }
-        }
+      
     }
 }
-
-
-

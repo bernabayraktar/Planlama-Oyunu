@@ -1,0 +1,74 @@
+C:\Users\Umut\Desktop\yazılım yapımı c#\planlama_oyunu\planlama_oyunu\bin\Debug\planlama_oyunu.exe.config
+C:\Users\Umut\Desktop\yazılım yapımı c#\planlama_oyunu\planlama_oyunu\bin\Debug\planlama_oyunu.exe
+C:\Users\Umut\Desktop\yazılım yapımı c#\planlama_oyunu\planlama_oyunu\bin\Debug\planlama_oyunu.pdb
+C:\Users\Umut\Desktop\yazılım yapımı c#\planlama_oyunu\planlama_oyunu\obj\Debug\planlama_oyunu.csprojAssemblyReference.cache
+C:\Users\Umut\Desktop\yazılım yapımı c#\planlama_oyunu\planlama_oyunu\obj\Debug\planlama_oyunu.Properties.Resources.resources
+C:\Users\Umut\Desktop\yazılım yapımı c#\planlama_oyunu\planlama_oyunu\obj\Debug\planlama_oyunu.csproj.GenerateResource.cache
+C:\Users\Umut\Desktop\yazılım yapımı c#\planlama_oyunu\planlama_oyunu\obj\Debug\planlama_oyunu.csproj.CoreCompileInputs.cache
+C:\Users\Umut\Desktop\yazılım yapımı c#\planlama_oyunu\planlama_oyunu\obj\Debug\planlama_oyunu.exe
+C:\Users\Umut\Desktop\yazılım yapımı c#\planlama_oyunu\planlama_oyunu\obj\Debug\planlama_oyunu.pdb
+C:\Users\Umut\Desktop\yazılım yapımı c#\planlama_oyunu\planlama_oyunu\obj\Debug\planlama_oyunu.Form_bilgiler.resources
+C:\Users\Umut\Desktop\yazılım yapımı c#\planlama_oyunu\planlama_oyunu\obj\Debug\planlama_oyunu.Form_login.resources
+C:\Users\Umut\Desktop\yazılım yapımı c#\planlama_oyunu\planlama_oyunu\obj\Debug\planlama_oyunu.Form_admin_onay.resources
+C:\Users\umut\Desktop\Yeni klasör\Yeni_WinRAR_arsivi (3)\yazılım yapımı c#\planlama_oyunu\planlama_oyunu\bin\Debug\planlama_oyunu.exe.config
+C:\Users\umut\Desktop\Yeni klasör\Yeni_WinRAR_arsivi (3)\yazılım yapımı c#\planlama_oyunu\planlama_oyunu\bin\Debug\planlama_oyunu.exe
+C:\Users\umut\Desktop\Yeni klasör\Yeni_WinRAR_arsivi (3)\yazılım yapımı c#\planlama_oyunu\planlama_oyunu\bin\Debug\planlama_oyunu.pdb
+C:\Users\umut\Desktop\Yeni klasör\Yeni_WinRAR_arsivi (3)\yazılım yapımı c#\planlama_oyunu\planlama_oyunu\obj\Debug\planlama_oyunu.csprojAssemblyReference.cache
+C:\Users\umut\Desktop\Yeni klasör\Yeni_WinRAR_arsivi (3)\yazılım yapımı c#\planlama_oyunu\planlama_oyunu\obj\Debug\planlama_oyunu.Form_admin_onay.resources
+C:\Users\umut\Desktop\Yeni klasör\Yeni_WinRAR_arsivi (3)\yazılım yapımı c#\planlama_oyunu\planlama_oyunu\obj\Debug\planlama_oyunu.Form_bilgiler.resources
+C:\Users\umut\Desktop\Yeni klasör\Yeni_WinRAR_arsivi (3)\yazılım yapımı c#\planlama_oyunu\planlama_oyunu\obj\Debug\planlama_oyunu.Form_login.resources
+C:\Users\umut\Desktop\Yeni klasör\Yeni_WinRAR_arsivi (3)\yazılım yapımı c#\planlama_oyunu\planlama_oyunu\obj\Debug\planlama_oyunu.Properties.Resources.resources
+C:\Users\umut\Desktop\Yeni klasör\Yeni_WinRAR_arsivi (3)\yazılım yapımı c#\planlama_oyunu\planlama_oyunu\obj\Debug\planlama_oyunu.csproj.GenerateResource.cache
+C:\Users\umut\Desktop\Yeni klasör\Yeni_WinRAR_arsivi (3)\yazılım yapımı c#\planlama_oyunu\planlama_oyunu\obj\Debug\planlama_oyunu.csproj.CoreCompileInputs.cache
+C:\Users\umut\Desktop\Yeni klasör\Yeni_WinRAR_arsivi (3)\yazılım yapımı c#\planlama_oyunu\planlama_oyunu\obj\Debug\planlama_oyunu.exe
+C:\Users\umut\Desktop\Yeni klasör\Yeni_WinRAR_arsivi (3)\yazılım yapımı c#\planlama_oyunu\planlama_oyunu\obj\Debug\planlama_oyunu.pdb
+C:\Users\umut\Desktop\Yeni klasör\Yeni_WinRAR_arsivi (3)\yazılım yapımı c#\planlama_oyunu\planlama_oyunu\obj\Debug\planlama_oyunu.Form_fiyat.resources
+C:\Users\umut\Desktop\Yeni klasör\planlama_oyunu\bin\Debug\planlama_oyunu.exe.config
+C:\Users\umut\Desktop\Yeni klasör\planlama_oyunu\bin\Debug\planlama_oyunu.exe
+C:\Users\umut\Desktop\Yeni klasör\planlama_oyunu\bin\Debug\planlama_oyunu.pdb
+C:\Users\umut\Desktop\Yeni klasör\planlama_oyunu\obj\Debug\planlama_oyunu.csprojAssemblyReference.cache
+C:\Users\umut\Desktop\Yeni klasör\planlama_oyunu\obj\Debug\planlama_oyunu.Form_admin_onay.resources
+C:\Users\umut\Desktop\Yeni klasör\planlama_oyunu\obj\Debug\planlama_oyunu.Form_bilgiler.resources
+C:\Users\umut\Desktop\Yeni klasör\planlama_oyunu\obj\Debug\planlama_oyunu.Form_login.resources
+C:\Users\umut\Desktop\Yeni klasör\planlama_oyunu\obj\Debug\planlama_oyunu.Properties.Resources.resources
+C:\Users\umut\Desktop\Yeni klasör\planlama_oyunu\obj\Debug\planlama_oyunu.csproj.GenerateResource.cache
+C:\Users\umut\Desktop\Yeni klasör\planlama_oyunu\obj\Debug\planlama_oyunu.csproj.CoreCompileInputs.cache
+C:\Users\umut\Desktop\Yeni klasör\planlama_oyunu\obj\Debug\planlama_oyunu.exe
+C:\Users\umut\Desktop\Yeni klasör\planlama_oyunu\obj\Debug\planlama_oyunu.pdb
+C:\Users\PROGRAMMER\Desktop\planlama oyunu\planlama_oyunu\bin\Debug\planlama_oyunu.exe.config
+C:\Users\PROGRAMMER\Desktop\planlama oyunu\planlama_oyunu\bin\Debug\planlama_oyunu.exe
+C:\Users\PROGRAMMER\Desktop\planlama oyunu\planlama_oyunu\bin\Debug\planlama_oyunu.pdb
+C:\Users\PROGRAMMER\Desktop\planlama oyunu\planlama_oyunu\obj\Debug\planlama_oyunu.csprojAssemblyReference.cache
+C:\Users\PROGRAMMER\Desktop\planlama oyunu\planlama_oyunu\obj\Debug\planlama_oyunu.Form_admin_onay.resources
+C:\Users\PROGRAMMER\Desktop\planlama oyunu\planlama_oyunu\obj\Debug\planlama_oyunu.Form_bilgiler.resources
+C:\Users\PROGRAMMER\Desktop\planlama oyunu\planlama_oyunu\obj\Debug\planlama_oyunu.Form_login.resources
+C:\Users\PROGRAMMER\Desktop\planlama oyunu\planlama_oyunu\obj\Debug\planlama_oyunu.Properties.Resources.resources
+C:\Users\PROGRAMMER\Desktop\planlama oyunu\planlama_oyunu\obj\Debug\planlama_oyunu.csproj.GenerateResource.cache
+C:\Users\PROGRAMMER\Desktop\planlama oyunu\planlama_oyunu\obj\Debug\planlama_oyunu.csproj.CoreCompileInputs.cache
+C:\Users\PROGRAMMER\Desktop\planlama oyunu\planlama_oyunu\obj\Debug\planlama_oyunu.exe
+C:\Users\PROGRAMMER\Desktop\planlama oyunu\planlama_oyunu\obj\Debug\planlama_oyunu.pdb
+C:\Users\ASUS\Desktop\Yazılım YapımıX\planlama oyunu gönderdiğimiz\planlama_oyunu\bin\Debug\planlama_oyunu.exe.config
+C:\Users\ASUS\Desktop\Yazılım YapımıX\planlama oyunu gönderdiğimiz\planlama_oyunu\bin\Debug\planlama_oyunu.exe
+C:\Users\ASUS\Desktop\Yazılım YapımıX\planlama oyunu gönderdiğimiz\planlama_oyunu\bin\Debug\planlama_oyunu.pdb
+C:\Users\ASUS\Desktop\Yazılım YapımıX\planlama oyunu gönderdiğimiz\planlama_oyunu\obj\Debug\planlama_oyunu.csprojAssemblyReference.cache
+C:\Users\ASUS\Desktop\Yazılım YapımıX\planlama oyunu gönderdiğimiz\planlama_oyunu\obj\Debug\planlama_oyunu.Form_admin_onay.resources
+C:\Users\ASUS\Desktop\Yazılım YapımıX\planlama oyunu gönderdiğimiz\planlama_oyunu\obj\Debug\planlama_oyunu.Form_bilgiler.resources
+C:\Users\ASUS\Desktop\Yazılım YapımıX\planlama oyunu gönderdiğimiz\planlama_oyunu\obj\Debug\planlama_oyunu.Form_login.resources
+C:\Users\ASUS\Desktop\Yazılım YapımıX\planlama oyunu gönderdiğimiz\planlama_oyunu\obj\Debug\planlama_oyunu.Properties.Resources.resources
+C:\Users\ASUS\Desktop\Yazılım YapımıX\planlama oyunu gönderdiğimiz\planlama_oyunu\obj\Debug\planlama_oyunu.csproj.GenerateResource.cache
+C:\Users\ASUS\Desktop\Yazılım YapımıX\planlama oyunu gönderdiğimiz\planlama_oyunu\obj\Debug\planlama_oyunu.csproj.CoreCompileInputs.cache
+C:\Users\ASUS\Desktop\Yazılım YapımıX\planlama oyunu gönderdiğimiz\planlama_oyunu\obj\Debug\planlama_oyunu.exe
+C:\Users\ASUS\Desktop\Yazılım YapımıX\planlama oyunu gönderdiğimiz\planlama_oyunu\obj\Debug\planlama_oyunu.pdb
+C:\Users\umut\Desktop\yazılım_yapımı_planlama_oyunu\Planlama-Oyunu-master\planlama_oyunu\bin\Debug\planlama_oyunu.exe.config
+C:\Users\umut\Desktop\yazılım_yapımı_planlama_oyunu\Planlama-Oyunu-master\planlama_oyunu\bin\Debug\planlama_oyunu.exe
+C:\Users\umut\Desktop\yazılım_yapımı_planlama_oyunu\Planlama-Oyunu-master\planlama_oyunu\bin\Debug\planlama_oyunu.pdb
+C:\Users\umut\Desktop\yazılım_yapımı_planlama_oyunu\Planlama-Oyunu-master\planlama_oyunu\obj\Debug\planlama_oyunu.csprojAssemblyReference.cache
+C:\Users\umut\Desktop\yazılım_yapımı_planlama_oyunu\Planlama-Oyunu-master\planlama_oyunu\obj\Debug\planlama_oyunu.csproj.ResolveComReference.cache
+C:\Users\umut\Desktop\yazılım_yapımı_planlama_oyunu\Planlama-Oyunu-master\planlama_oyunu\obj\Debug\planlama_oyunu.Form_admin_onay.resources
+C:\Users\umut\Desktop\yazılım_yapımı_planlama_oyunu\Planlama-Oyunu-master\planlama_oyunu\obj\Debug\planlama_oyunu.Form_bilgiler.resources
+C:\Users\umut\Desktop\yazılım_yapımı_planlama_oyunu\Planlama-Oyunu-master\planlama_oyunu\obj\Debug\planlama_oyunu.Form_login.resources
+C:\Users\umut\Desktop\yazılım_yapımı_planlama_oyunu\Planlama-Oyunu-master\planlama_oyunu\obj\Debug\planlama_oyunu.Properties.Resources.resources
+C:\Users\umut\Desktop\yazılım_yapımı_planlama_oyunu\Planlama-Oyunu-master\planlama_oyunu\obj\Debug\planlama_oyunu.csproj.GenerateResource.cache
+C:\Users\umut\Desktop\yazılım_yapımı_planlama_oyunu\Planlama-Oyunu-master\planlama_oyunu\obj\Debug\planlama_oyunu.csproj.CoreCompileInputs.cache
+C:\Users\umut\Desktop\yazılım_yapımı_planlama_oyunu\Planlama-Oyunu-master\planlama_oyunu\obj\Debug\planlama_oyunu.exe
+C:\Users\umut\Desktop\yazılım_yapımı_planlama_oyunu\Planlama-Oyunu-master\planlama_oyunu\obj\Debug\planlama_oyunu.pdb

@@ -29,10 +29,12 @@ namespace planlama_oyunu
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_admin_onay));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.listView_para_sorgu = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label4 = new System.Windows.Forms.Label();
             this.txtlist_transfer_Para = new System.Windows.Forms.TextBox();
             this.btnParaRed = new System.Windows.Forms.Button();
@@ -60,6 +62,7 @@ namespace planlama_oyunu
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btn_çıkış = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -67,6 +70,7 @@ namespace planlama_oyunu
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.Thistle;
+            this.groupBox1.Controls.Add(this.btn_çıkış);
             this.groupBox1.Controls.Add(this.listView_para_sorgu);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.txtlist_transfer_Para);
@@ -81,7 +85,7 @@ namespace planlama_oyunu
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(300, 493);
+            this.groupBox1.Size = new System.Drawing.Size(379, 537);
             this.groupBox1.TabIndex = 13;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Para Transfer Paneli";
@@ -90,13 +94,14 @@ namespace planlama_oyunu
             // 
             this.listView_para_sorgu.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
-            this.columnHeader2});
+            this.columnHeader2,
+            this.columnHeader7});
             this.listView_para_sorgu.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.listView_para_sorgu.FullRowSelect = true;
             this.listView_para_sorgu.HideSelection = false;
             this.listView_para_sorgu.Location = new System.Drawing.Point(10, 43);
             this.listView_para_sorgu.Name = "listView_para_sorgu";
-            this.listView_para_sorgu.Size = new System.Drawing.Size(286, 177);
+            this.listView_para_sorgu.Size = new System.Drawing.Size(356, 177);
             this.listView_para_sorgu.TabIndex = 0;
             this.listView_para_sorgu.UseCompatibleStateImageBehavior = false;
             this.listView_para_sorgu.View = System.Windows.Forms.View.Details;
@@ -112,19 +117,24 @@ namespace planlama_oyunu
             this.columnHeader2.Text = "para_miktar";
             this.columnHeader2.Width = 135;
             // 
+            // columnHeader7
+            // 
+            this.columnHeader7.Text = "para birimi";
+            this.columnHeader7.Width = 86;
+            // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label4.Location = new System.Drawing.Point(25, 401);
+            this.label4.Location = new System.Drawing.Point(25, 385);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(73, 13);
+            this.label4.Size = new System.Drawing.Size(95, 13);
             this.label4.TabIndex = 11;
-            this.label4.Text = "Güncel Miktar";
+            this.label4.Text = "Güncel Miktar(TL):";
             // 
             // txtlist_transfer_Para
             // 
-            this.txtlist_transfer_Para.Location = new System.Drawing.Point(162, 342);
+            this.txtlist_transfer_Para.Location = new System.Drawing.Point(162, 326);
             this.txtlist_transfer_Para.Name = "txtlist_transfer_Para";
             this.txtlist_transfer_Para.Size = new System.Drawing.Size(130, 26);
             this.txtlist_transfer_Para.TabIndex = 8;
@@ -133,9 +143,9 @@ namespace planlama_oyunu
             // 
             this.btnParaRed.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.btnParaRed.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnParaRed.Location = new System.Drawing.Point(162, 436);
+            this.btnParaRed.Location = new System.Drawing.Point(172, 426);
             this.btnParaRed.Name = "btnParaRed";
-            this.btnParaRed.Size = new System.Drawing.Size(130, 54);
+            this.btnParaRed.Size = new System.Drawing.Size(120, 54);
             this.btnParaRed.TabIndex = 3;
             this.btnParaRed.Text = "Transferi Reddet";
             this.btnParaRed.UseVisualStyleBackColor = false;
@@ -143,7 +153,7 @@ namespace planlama_oyunu
             // 
             // txtlist_ID
             // 
-            this.txtlist_ID.Location = new System.Drawing.Point(162, 242);
+            this.txtlist_ID.Location = new System.Drawing.Point(162, 226);
             this.txtlist_ID.Name = "txtlist_ID";
             this.txtlist_ID.Size = new System.Drawing.Size(130, 26);
             this.txtlist_ID.TabIndex = 4;
@@ -152,15 +162,15 @@ namespace planlama_oyunu
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label1.Location = new System.Drawing.Point(25, 250);
+            this.label1.Location = new System.Drawing.Point(25, 239);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(60, 13);
+            this.label1.Size = new System.Drawing.Size(61, 13);
             this.label1.TabIndex = 6;
-            this.label1.Text = "Kullanıcı ID";
+            this.label1.Text = "Kullanıcı Id:";
             // 
             // txt_güncel_para
             // 
-            this.txt_güncel_para.Location = new System.Drawing.Point(162, 392);
+            this.txt_güncel_para.Location = new System.Drawing.Point(162, 376);
             this.txt_güncel_para.Name = "txt_güncel_para";
             this.txt_güncel_para.Size = new System.Drawing.Size(130, 26);
             this.txt_güncel_para.TabIndex = 9;
@@ -169,25 +179,25 @@ namespace planlama_oyunu
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label3.Location = new System.Drawing.Point(25, 350);
+            this.label3.Location = new System.Drawing.Point(25, 334);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(80, 13);
+            this.label3.Size = new System.Drawing.Size(102, 13);
             this.label3.TabIndex = 10;
-            this.label3.Text = "Transfer Miktarı";
+            this.label3.Text = "Transfer Miktarı(TL):";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label2.Location = new System.Drawing.Point(25, 300);
+            this.label2.Location = new System.Drawing.Point(25, 284);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(75, 13);
+            this.label2.Size = new System.Drawing.Size(97, 13);
             this.label2.TabIndex = 7;
-            this.label2.Text = "Mevcut Miktar";
+            this.label2.Text = "Mevcut Miktar(TL):";
             // 
             // txtlist_mevcut_Para
             // 
-            this.txtlist_mevcut_Para.Location = new System.Drawing.Point(162, 292);
+            this.txtlist_mevcut_Para.Location = new System.Drawing.Point(162, 276);
             this.txtlist_mevcut_Para.Name = "txtlist_mevcut_Para";
             this.txtlist_mevcut_Para.Size = new System.Drawing.Size(130, 26);
             this.txtlist_mevcut_Para.TabIndex = 5;
@@ -196,7 +206,7 @@ namespace planlama_oyunu
             // 
             this.btnParaOnay.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.btnParaOnay.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnParaOnay.Location = new System.Drawing.Point(6, 436);
+            this.btnParaOnay.Location = new System.Drawing.Point(10, 426);
             this.btnParaOnay.Name = "btnParaOnay";
             this.btnParaOnay.Size = new System.Drawing.Size(122, 54);
             this.btnParaOnay.TabIndex = 2;
@@ -206,6 +216,7 @@ namespace planlama_oyunu
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.button2);
             this.groupBox2.Controls.Add(this.btn_item_red);
             this.groupBox2.Controls.Add(this.btn_item_onay);
             this.groupBox2.Controls.Add(this.txt_list_item_itemmiktar);
@@ -218,9 +229,9 @@ namespace planlama_oyunu
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Controls.Add(this.listView_item_sorgu);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.groupBox2.Location = new System.Drawing.Point(306, 0);
+            this.groupBox2.Location = new System.Drawing.Point(385, 0);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(414, 546);
+            this.groupBox2.Size = new System.Drawing.Size(412, 532);
             this.groupBox2.TabIndex = 16;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Mal Beyan Paneli";
@@ -229,9 +240,9 @@ namespace planlama_oyunu
             // 
             this.btn_item_red.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.btn_item_red.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btn_item_red.Location = new System.Drawing.Point(240, 385);
+            this.btn_item_red.Location = new System.Drawing.Point(252, 408);
             this.btn_item_red.Name = "btn_item_red";
-            this.btn_item_red.Size = new System.Drawing.Size(122, 43);
+            this.btn_item_red.Size = new System.Drawing.Size(141, 41);
             this.btn_item_red.TabIndex = 24;
             this.btn_item_red.Text = "Transferi Reddet";
             this.btn_item_red.UseVisualStyleBackColor = false;
@@ -241,9 +252,9 @@ namespace planlama_oyunu
             // 
             this.btn_item_onay.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.btn_item_onay.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btn_item_onay.Location = new System.Drawing.Point(240, 267);
+            this.btn_item_onay.Location = new System.Drawing.Point(252, 306);
             this.btn_item_onay.Name = "btn_item_onay";
-            this.btn_item_onay.Size = new System.Drawing.Size(122, 54);
+            this.btn_item_onay.Size = new System.Drawing.Size(141, 41);
             this.btn_item_onay.TabIndex = 23;
             this.btn_item_onay.Text = "Transferi Onayla";
             this.btn_item_onay.UseVisualStyleBackColor = false;
@@ -251,7 +262,7 @@ namespace planlama_oyunu
             // 
             // txt_list_item_itemmiktar
             // 
-            this.txt_list_item_itemmiktar.Location = new System.Drawing.Point(83, 414);
+            this.txt_list_item_itemmiktar.Location = new System.Drawing.Point(95, 440);
             this.txt_list_item_itemmiktar.Name = "txt_list_item_itemmiktar";
             this.txt_list_item_itemmiktar.Size = new System.Drawing.Size(130, 26);
             this.txt_list_item_itemmiktar.TabIndex = 21;
@@ -260,7 +271,7 @@ namespace planlama_oyunu
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label8.Location = new System.Drawing.Point(14, 414);
+            this.label8.Location = new System.Drawing.Point(14, 448);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(63, 13);
             this.label8.TabIndex = 22;
@@ -268,7 +279,7 @@ namespace planlama_oyunu
             // 
             // txt_list_item_itemfiyat
             // 
-            this.txt_list_item_itemfiyat.Location = new System.Drawing.Point(83, 360);
+            this.txt_list_item_itemfiyat.Location = new System.Drawing.Point(95, 386);
             this.txt_list_item_itemfiyat.Name = "txt_list_item_itemfiyat";
             this.txt_list_item_itemfiyat.Size = new System.Drawing.Size(130, 26);
             this.txt_list_item_itemfiyat.TabIndex = 19;
@@ -277,7 +288,7 @@ namespace planlama_oyunu
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label7.Location = new System.Drawing.Point(14, 360);
+            this.label7.Location = new System.Drawing.Point(14, 394);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(54, 13);
             this.label7.TabIndex = 20;
@@ -285,7 +296,7 @@ namespace planlama_oyunu
             // 
             // txt_list_item_itemad
             // 
-            this.txt_list_item_itemad.Location = new System.Drawing.Point(83, 307);
+            this.txt_list_item_itemad.Location = new System.Drawing.Point(95, 333);
             this.txt_list_item_itemad.Name = "txt_list_item_itemad";
             this.txt_list_item_itemad.Size = new System.Drawing.Size(130, 26);
             this.txt_list_item_itemad.TabIndex = 17;
@@ -294,7 +305,7 @@ namespace planlama_oyunu
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label6.Location = new System.Drawing.Point(14, 307);
+            this.label6.Location = new System.Drawing.Point(14, 341);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(47, 13);
             this.label6.TabIndex = 18;
@@ -302,7 +313,7 @@ namespace planlama_oyunu
             // 
             // txt_list_item_ID
             // 
-            this.txt_list_item_ID.Location = new System.Drawing.Point(83, 253);
+            this.txt_list_item_ID.Location = new System.Drawing.Point(95, 279);
             this.txt_list_item_ID.Name = "txt_list_item_ID";
             this.txt_list_item_ID.Size = new System.Drawing.Size(130, 26);
             this.txt_list_item_ID.TabIndex = 15;
@@ -311,11 +322,11 @@ namespace planlama_oyunu
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label5.Location = new System.Drawing.Point(14, 254);
+            this.label5.Location = new System.Drawing.Point(14, 284);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(60, 13);
+            this.label5.Size = new System.Drawing.Size(61, 13);
             this.label5.TabIndex = 16;
-            this.label5.Text = "Kullanıcı ID";
+            this.label5.Text = "Kullanıcı Id:";
             // 
             // listView_item_sorgu
             // 
@@ -327,7 +338,7 @@ namespace planlama_oyunu
             this.listView_item_sorgu.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.listView_item_sorgu.FullRowSelect = true;
             this.listView_item_sorgu.HideSelection = false;
-            this.listView_item_sorgu.Location = new System.Drawing.Point(6, 43);
+            this.listView_item_sorgu.Location = new System.Drawing.Point(17, 43);
             this.listView_item_sorgu.Name = "listView_item_sorgu";
             this.listView_item_sorgu.Size = new System.Drawing.Size(376, 177);
             this.listView_item_sorgu.TabIndex = 13;
@@ -357,26 +368,38 @@ namespace planlama_oyunu
             // 
             // btn_çıkış
             // 
-            this.btn_çıkış.BackColor = System.Drawing.Color.Teal;
-            this.btn_çıkış.Location = new System.Drawing.Point(6, 509);
-            this.btn_çıkış.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_çıkış.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.btn_çıkış.Location = new System.Drawing.Point(244, 495);
+            this.btn_çıkış.Margin = new System.Windows.Forms.Padding(2);
             this.btn_çıkış.Name = "btn_çıkış";
-            this.btn_çıkış.Size = new System.Drawing.Size(122, 30);
+            this.btn_çıkış.Size = new System.Drawing.Size(122, 37);
             this.btn_çıkış.TabIndex = 17;
             this.btn_çıkış.Text = "ÇIKIŞ";
             this.btn_çıkış.UseVisualStyleBackColor = false;
             this.btn_çıkış.Click += new System.EventHandler(this.btn_çıkış_Click);
+            // 
+            // button2
+            // 
+            this.button2.AccessibleRole = System.Windows.Forms.AccessibleRole.ScrollBar;
+            this.button2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button2.BackgroundImage")));
+            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button2.Location = new System.Drawing.Point(374, 0);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(40, 30);
+            this.button2.TabIndex = 43;
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // Form_admin_onay
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(1114, 548);
-            this.Controls.Add(this.btn_çıkış);
+            this.ClientSize = new System.Drawing.Size(798, 536);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form_admin_onay";
             this.Text = "ADMİN PANEL";
             this.Load += new System.EventHandler(this.Form_admin_onay_Load);
@@ -421,5 +444,7 @@ namespace planlama_oyunu
         private System.Windows.Forms.TextBox txt_list_item_ID;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btn_çıkış;
+        private System.Windows.Forms.ColumnHeader columnHeader7;
+        private System.Windows.Forms.Button button2;
     }
 }

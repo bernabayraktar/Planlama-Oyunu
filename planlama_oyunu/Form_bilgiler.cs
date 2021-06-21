@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.OleDb;
 using System.IO;
+using excel = Microsoft.Office.Interop.Excel;
 
 namespace planlama_oyunu
 {
@@ -115,17 +116,33 @@ namespace planlama_oyunu
 
         private void btn_item_başvuru_Click(object sender, EventArgs e)
         {
-            itemler.item_başvuru(Form_login.usertype, txt_item_başvuru.Text, Convert.ToInt32(txt_item_miktar.Text), Convert.ToInt32(txt_item_fiyat_başvuru.Text));
+            if (txt_item_başvuru.Text == "" || txt_item_miktar.Text == "" || txt_item_fiyat_başvuru.Text == "")
+            {
+                MessageBox.Show("Bu işlemi yapabilmek için gerekli bilgileri giriniz!");
+            }
+            else
+            {
+                itemler.item_başvuru(Form_login.usertype, txt_item_başvuru.Text, Convert.ToInt32(txt_item_miktar.Text), Convert.ToInt32(txt_item_fiyat_başvuru.Text));
 
-            MessageBox.Show("Item başvuru talebiniz iletildi");
-            başvuru_cleaner();
+                MessageBox.Show("Item başvuru talebiniz iletildi");
+                başvuru_cleaner();
+            }
+
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            para.para_başvuru(Form_login.usertype, Convert.ToInt32(txt_para_başvuru.Text));
-            MessageBox.Show("Para başvuru talebiniz iletildi");
-            başvuru_cleaner();
+            if (txt_para_başvuru.Text == "" || cmbMoneyType.Text == "")
+            {
+                MessageBox.Show("Bu işlemi yapabilmek için gerekli bilgileri giriniz.");
+            }
+            else
+            {
+                para.para_başvuru(Form_login.usertype, Convert.ToDouble(txt_para_başvuru.Text), cmbMoneyType.Text);
+                MessageBox.Show("Para başvuru talebiniz iletildi");
+                başvuru_cleaner();
+            }
+
         }
 
         private void btn_çıkış_Click(object sender, EventArgs e)
@@ -139,11 +156,12 @@ namespace planlama_oyunu
         int gelenParaId;
         int gidenParaId;
         int yollananpara = 0;
+        int yollananParaMuhasebe = 0;
 
         private void button1_Click(object sender, EventArgs e)
         {
             istenenFiyat = istenenFiyatTxt.Text;
-            if (istenenFiyatTxt.Text == null)
+            if (istenenFiyatTxt.Text == "")
             {
                 int tutar = 0;
 
@@ -157,6 +175,7 @@ namespace planlama_oyunu
                 {
                     if (Convert.ToInt32(istenenKgTxt.Text) >= Convert.ToInt32(oku[3])) //kişinin almak istediği kg ilk satırdaki elemanın kg dan büyükse
                     {
+                        MessageBox.Show(" ctrl");
                         int fiyat1 = ((Convert.ToInt32(oku[3]) * Convert.ToInt32(oku[4])) + (Convert.ToInt32(oku[3]) * Convert.ToInt32(oku[4])) / 100);
                         //PARA KONTROL
                         command = new OleDbCommand("Select * from para where userID=@userid", baglanti);
@@ -164,12 +183,14 @@ namespace planlama_oyunu
                         OleDbDataReader yenioku;
                         yenioku = command.ExecuteReader();
                         //bakiye = fiyat1;
+                        yollananParaMuhasebe = (Convert.ToInt32(oku[3]) * Convert.ToInt32(oku[4])) / 100;
                         if (yenioku.Read())
                         {
                             if (Convert.ToInt32(yenioku[1]) >= fiyat1) //alicinin parasinin yettigi durum 
                             {
                                 gelenParaId = Convert.ToInt32(oku[1]);
                                 yollananpara = Convert.ToInt32(oku[3]) * Convert.ToInt32(oku[4]);
+
                                 paraekleme();
                                 command = new OleDbCommand("update kullanıcı_item set [userID] = @userid where urunKodu = @urunkodu and item_ad = @itemad", baglanti);
                                 command.Parameters.AddWithValue("@userid", Form_login.usertype);
@@ -197,6 +218,7 @@ namespace planlama_oyunu
         }
         void paraekleme()
         {
+            //satıcıya para gönderilir.
             OleDbCommand command = new OleDbCommand("select * from para where userID=@userid", baglanti);
             command.Parameters.AddWithValue("@userid", gelenParaId);
             OleDbDataReader oku;
@@ -210,27 +232,33 @@ namespace planlama_oyunu
                 command.ExecuteNonQuery();
             }
 
+            //muhasebe kullanıcısına para gönderilir.
+            OleDbCommand com = new OleDbCommand("select * from para where userID=" + 17 + "", baglanti);
+            OleDbDataReader okuMuhasebePara;
+            okuMuhasebePara = com.ExecuteReader();
+            while (okuMuhasebePara.Read())
+            {
+                command = new OleDbCommand("update para set [para_miktar] = @paramiktar where [userID] = " + 17 + "", baglanti);
+                command.Parameters.AddWithValue("@paramiktar", yollananParaMuhasebe);
+                command.ExecuteNonQuery();
+            }
         }
         void paracikarma()
         {
+            //alıcıdan para kesilir.
             OleDbCommand command = new OleDbCommand("select * from para where userID=@userid", baglanti);
             command.Parameters.AddWithValue("@userid", gidenParaId);
             OleDbDataReader oku;
             oku = command.ExecuteReader();
             while (oku.Read())
             {
-
+                int gonder = yollananpara + yollananParaMuhasebe;
                 command = new OleDbCommand("update para set [para_miktar] = @paramiktar where [userID] = @userid", baglanti);
-                command.Parameters.AddWithValue("@paramiktar", Convert.ToInt32(oku[1]) - yollananpara);
+                command.Parameters.AddWithValue("@paramiktar", Convert.ToInt32(oku[1]) - gonder);
                 command.Parameters.AddWithValue("@userid", gidenParaId);
                 command.ExecuteNonQuery();
             }
 
-        }
-
-        private void button2_Click_1(object sender, EventArgs e)
-        {
-            Application.Exit();
         }
 
         private void btnTalepOlustur_Click(object sender, EventArgs e)
@@ -253,64 +281,114 @@ namespace planlama_oyunu
 
         private void button4_Click(object sender, EventArgs e)
         {
-            baglanti.Open();
-            OleDbCommand satinAlmaRaporCmd = new OleDbCommand("Select * from satinAlmaGecmisi where tarih >='" + dateTimePicker4.Value.ToString() + "' and tarih <='" + dateTimePicker1.Value.ToString()  + "' where userID='" + lbl_userID + "'", baglanti);
-            OleDbDataReader satinAlmaRaporCmdReader = satinAlmaRaporCmd.ExecuteReader();
-
-            if(satinAlmaRaporCmdReader.Read())
-            {
-                string fileName = "satinAlmaGecmisi.csv";
-                StreamWriter sw = new StreamWriter(fileName);
-                object[] output = new object[satinAlmaRaporCmdReader.FieldCount];
-
-                for (int i = 0; i < satinAlmaRaporCmdReader.FieldCount; i++)
-                    output[i] = satinAlmaRaporCmdReader.GetName(i);
-
-                sw.WriteLine(string.Join(",", output));
-
-                while (satinAlmaRaporCmdReader.Read())
-                {
-                    satinAlmaRaporCmdReader.GetValues(output);
-                    sw.WriteLine(string.Join(",", output));
-                }
-                sw.Close();
-            } else
-            {
-                MessageBox.Show("Henüz hiçbir şey satın almamışsın.");
-            }
-            satinAlmaRaporCmdReader.Close();
-            baglanti.Close();
+            alisexcelAktar();
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
+            satisexcelAktar();
+        }
+        void alisListeleme()
+        {
             baglanti.Open();
-            OleDbCommand satisRaporCmd = new OleDbCommand("Select * from satisGecmisi where tarih >='" + dateTimePicker2.Value.ToString() + "' and tarih <='" + dateTimePicker3.Value.ToString() + "' where userID='" + lbl_userID + "'", baglanti);
-            OleDbDataReader satisRaporCmdReader = satisRaporCmd.ExecuteReader();
+            DataTable tablo2 = new DataTable();
 
-            if(satisRaporCmdReader.Read())
-            {
-                string fileName = "satisGecmisi.csv";
-                StreamWriter sw = new StreamWriter(fileName);
-                object[] output = new object[satisRaporCmdReader.FieldCount];
 
-                for (int i = 0; i < satisRaporCmdReader.FieldCount; i++)
-                    output[i] = satisRaporCmdReader.GetName(i);
+            OleDbCommand satisRaporCmd;//tarih >='" + dateTimePicker2.Value.ToString() + "' and tarih <='" + dateTimePicker3.Value.ToString() + "' where userID='" + lbl_userID + "'"
+            satisRaporCmd = new OleDbCommand("Select * from satinAlmaGecmisi where ([tarih]>@tarihkucuk and [tarih]<@tarihbuyuk) and ([userID]=@userid)  ", baglanti);// and ([userID]=@userid)
+            satisRaporCmd.Parameters.AddWithValue("@tarihkucuk", dateTimePicker3.Text);
+            satisRaporCmd.Parameters.AddWithValue("@tarihbuyuk", dateTimePicker2.Text);
+            satisRaporCmd.Parameters.AddWithValue("@userid", textBox1.Text);
 
-                sw.WriteLine(string.Join(",", output));
-
-                while (satisRaporCmdReader.Read())
-                {
-                    satisRaporCmdReader.GetValues(output);
-                    sw.WriteLine(string.Join(",", output));
-                }
-                sw.Close();                
-            } else
-            {
-                MessageBox.Show("Henüz satış yapmamışsın.");
-            }
-            satisRaporCmdReader.Close();
+            OleDbDataAdapter adapter = new OleDbDataAdapter(satisRaporCmd);
+            adapter.Fill(tablo2);
+            alisDGV.DataSource = tablo2;
             baglanti.Close();
+        }
+        void satisListeleme()
+        {
+            baglanti.Open();
+            DataTable tablo3 = new DataTable();
+            OleDbCommand satisRaporCmd;//tarih >='" + dateTimePicker2.Value.ToString() + "' and tarih <='" + dateTimePicker3.Value.ToString() + "' where userID='" + lbl_userID + "'"
+            satisRaporCmd = new OleDbCommand("Select * from satisGecmisi where ([tarih]>@tarihkucuk and [tarih]<@tarihbuyuk) and ([userID]=@userid)", baglanti);// and ([userID]=@userid)
+            satisRaporCmd.Parameters.AddWithValue("@tarihkucuk", dateTimePicker6.Text);
+            satisRaporCmd.Parameters.AddWithValue("@tarihbuyuk", dateTimePicker5.Text);
+            satisRaporCmd.Parameters.AddWithValue("@userid", textBox1.Text);
+            //satisRaporCmd.Parameters.AddWithValue("@userid", lbl_userID.Text);
+
+            OleDbDataAdapter adapter = new OleDbDataAdapter(satisRaporCmd);
+            adapter.Fill(tablo3);
+            satisDGV.DataSource = tablo3;
+            baglanti.Close();
+        }
+        void alisexcelAktar()
+        {
+            excel.Application excelUygulamasi = new excel.Application();       //Excel uygulaması için yeni bir nesne oluşturuluyor.
+            excelUygulamasi.Visible = true;                                  //Excel'in gözükmesini sağlar.  
+            excel.Workbook kitaplık = excelUygulamasi.Workbooks.Add(System.Reflection.Missing.Value);
+            excel.Worksheet sayfa = (excel.Worksheet)kitaplık.Sheets[1];    //1. sayfadan başlaması sağlandı.
+            for (int i = 0; i < alisDGV.Columns.Count; i++)                // sütun sayısı kadar döngü döndürülüyor.
+            {
+                excel.Range range = (excel.Range)sayfa.Cells[1, i + 1];        //tablodaki kolonların başlıkları geçirildi.
+                range.Value2 = alisDGV.Columns[i].HeaderText;
+            }
+            for (int i = 0; i < alisDGV.Columns.Count; i++)                // sütun sayısı kadar döngü döndürülüyor.
+            {
+                for (int j = 0; j < alisDGV.Rows.Count; j++)               //satır sayısı kadar döngü döndürülüyor.
+                {
+                    excel.Range range = (excel.Range)sayfa.Cells[j + 2, i + 1];  //tablodaki geri kalan değerler excel'e aktarıldı.
+                    range.Value2 = alisDGV[i, j].Value;
+                    range.Select();
+
+                }
+            }
+        }
+        void satisexcelAktar()
+        {
+            excel.Application excelUygulamasi = new excel.Application();       //Excel uygulaması için yeni bir nesne oluşturuluyor.
+            excelUygulamasi.Visible = true;                                  //Excel'in gözükmesini sağlar.  
+            excel.Workbook kitaplık = excelUygulamasi.Workbooks.Add(System.Reflection.Missing.Value);
+            excel.Worksheet sayfa = (excel.Worksheet)kitaplık.Sheets[1];    //1. sayfadan başlaması sağlandı.
+            for (int i = 0; i < satisDGV.Columns.Count; i++)                // sütun sayısı kadar döngü döndürülüyor.
+            {
+                excel.Range range = (excel.Range)sayfa.Cells[1, i + 1];        //tablodaki kolonların başlıkları geçirildi.
+                range.Value2 = satisDGV.Columns[i].HeaderText;
+            }
+            for (int i = 0; i < satisDGV.Columns.Count; i++)                // sütun sayısı kadar döngü döndürülüyor.
+            {
+                for (int j = 0; j < satisDGV.Rows.Count; j++)               //satır sayısı kadar döngü döndürülüyor.
+                {
+                    excel.Range range = (excel.Range)sayfa.Cells[j + 2, i + 1];  //tablodaki geri kalan değerler excel'e aktarıldı.
+                    range.Value2 = satisDGV[i, j].Value;
+                    range.Select();
+
+                }
+            }
+        }
+
+        private void dateTimePicker6_ValueChanged(object sender, EventArgs e)
+        {
+            satisListeleme();
+        }
+
+        private void dateTimePicker5_ValueChanged(object sender, EventArgs e)
+        {
+            satisListeleme();
+        }
+
+        private void dateTimePicker3_ValueChanged(object sender, EventArgs e)
+        {
+            alisListeleme();
+        }
+
+        private void dateTimePicker2_ValueChanged(object sender, EventArgs e)
+        {
+            alisListeleme();
+        }
+
+        private void buttonExit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

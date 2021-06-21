@@ -32,6 +32,7 @@ namespace planlama_oyunu
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_bilgiler));
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.cmbMoneyType = new System.Windows.Forms.ComboBox();
             this.btn_para_başvuru = new System.Windows.Forms.Button();
             this.label15 = new System.Windows.Forms.Label();
             this.txt_para_başvuru = new System.Windows.Forms.TextBox();
@@ -81,10 +82,16 @@ namespace planlama_oyunu
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker4 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker3 = new System.Windows.Forms.DateTimePicker();
+            this.label24 = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePicker3 = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePicker5 = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePicker6 = new System.Windows.Forms.DateTimePicker();
+            this.satisDGV = new System.Windows.Forms.DataGridView();
+            this.alisDGV = new System.Windows.Forms.DataGridView();
             this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.listwiev_item = new System.Windows.Forms.ListView();
@@ -95,7 +102,7 @@ namespace planlama_oyunu
             this.label19 = new System.Windows.Forms.Label();
             this.lbl_para = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
+            this.buttonExit = new System.Windows.Forms.Button();
             this.tabPage3.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -105,6 +112,8 @@ namespace planlama_oyunu
             this.tabControl1.SuspendLayout();
             this.tabPage4.SuspendLayout();
             this.groupBox4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.satisDGV)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.alisDGV)).BeginInit();
             this.SuspendLayout();
             // 
             // tabPage3
@@ -117,7 +126,7 @@ namespace planlama_oyunu
             this.tabPage3.Controls.Add(this.groupBox1);
             this.tabPage3.Location = new System.Drawing.Point(4, 24);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage3.Size = new System.Drawing.Size(870, 465);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Hesabım";
@@ -125,24 +134,38 @@ namespace planlama_oyunu
             // groupBox3
             // 
             this.groupBox3.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.groupBox3.Controls.Add(this.cmbMoneyType);
             this.groupBox3.Controls.Add(this.btn_para_başvuru);
             this.groupBox3.Controls.Add(this.label15);
             this.groupBox3.Controls.Add(this.txt_para_başvuru);
             this.groupBox3.Controls.Add(this.label14);
             this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.groupBox3.Location = new System.Drawing.Point(376, 267);
-            this.groupBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox3.Size = new System.Drawing.Size(413, 166);
             this.groupBox3.TabIndex = 41;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Para Yatırma Başvurusunda Bulunun";
             // 
+            // cmbMoneyType
+            // 
+            this.cmbMoneyType.FormattingEnabled = true;
+            this.cmbMoneyType.Items.AddRange(new object[] {
+            "TRY",
+            "USD",
+            "EUR",
+            "GBP"});
+            this.cmbMoneyType.Location = new System.Drawing.Point(276, 62);
+            this.cmbMoneyType.Name = "cmbMoneyType";
+            this.cmbMoneyType.Size = new System.Drawing.Size(49, 24);
+            this.cmbMoneyType.TabIndex = 42;
+            // 
             // btn_para_başvuru
             // 
             this.btn_para_başvuru.Location = new System.Drawing.Point(286, 118);
-            this.btn_para_başvuru.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_para_başvuru.Margin = new System.Windows.Forms.Padding(2);
             this.btn_para_başvuru.Name = "btn_para_başvuru";
             this.btn_para_başvuru.Size = new System.Drawing.Size(107, 29);
             this.btn_para_başvuru.TabIndex = 40;
@@ -164,7 +187,7 @@ namespace planlama_oyunu
             // txt_para_başvuru
             // 
             this.txt_para_başvuru.Location = new System.Drawing.Point(107, 67);
-            this.txt_para_başvuru.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txt_para_başvuru.Margin = new System.Windows.Forms.Padding(2);
             this.txt_para_başvuru.Name = "txt_para_başvuru";
             this.txt_para_başvuru.Size = new System.Drawing.Size(125, 22);
             this.txt_para_başvuru.TabIndex = 33;
@@ -193,9 +216,9 @@ namespace planlama_oyunu
             this.groupBox2.Controls.Add(this.label9);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.groupBox2.Location = new System.Drawing.Point(333, 25);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox2.Size = new System.Drawing.Size(496, 223);
             this.groupBox2.TabIndex = 31;
             this.groupBox2.TabStop = false;
@@ -204,7 +227,7 @@ namespace planlama_oyunu
             // txt_item_başvuru
             // 
             this.txt_item_başvuru.Location = new System.Drawing.Point(166, 59);
-            this.txt_item_başvuru.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txt_item_başvuru.Margin = new System.Windows.Forms.Padding(2);
             this.txt_item_başvuru.Name = "txt_item_başvuru";
             this.txt_item_başvuru.Size = new System.Drawing.Size(76, 24);
             this.txt_item_başvuru.TabIndex = 40;
@@ -212,7 +235,7 @@ namespace planlama_oyunu
             // btn_item_başvuru
             // 
             this.btn_item_başvuru.Location = new System.Drawing.Point(359, 179);
-            this.btn_item_başvuru.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_item_başvuru.Margin = new System.Windows.Forms.Padding(2);
             this.btn_item_başvuru.Name = "btn_item_başvuru";
             this.btn_item_başvuru.Size = new System.Drawing.Size(107, 29);
             this.btn_item_başvuru.TabIndex = 39;
@@ -234,7 +257,7 @@ namespace planlama_oyunu
             // txt_item_fiyat_başvuru
             // 
             this.txt_item_fiyat_başvuru.Location = new System.Drawing.Point(166, 154);
-            this.txt_item_fiyat_başvuru.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txt_item_fiyat_başvuru.Margin = new System.Windows.Forms.Padding(2);
             this.txt_item_fiyat_başvuru.Name = "txt_item_fiyat_başvuru";
             this.txt_item_fiyat_başvuru.Size = new System.Drawing.Size(76, 24);
             this.txt_item_fiyat_başvuru.TabIndex = 38;
@@ -264,7 +287,7 @@ namespace planlama_oyunu
             // txt_item_miktar
             // 
             this.txt_item_miktar.Location = new System.Drawing.Point(166, 108);
-            this.txt_item_miktar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txt_item_miktar.Margin = new System.Windows.Forms.Padding(2);
             this.txt_item_miktar.Name = "txt_item_miktar";
             this.txt_item_miktar.Size = new System.Drawing.Size(76, 24);
             this.txt_item_miktar.TabIndex = 35;
@@ -303,9 +326,9 @@ namespace planlama_oyunu
             this.groupBox1.Controls.Add(this.label18);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.groupBox1.Location = new System.Drawing.Point(17, 15);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox1.Size = new System.Drawing.Size(287, 447);
             this.groupBox1.TabIndex = 30;
             this.groupBox1.TabStop = false;
@@ -315,7 +338,7 @@ namespace planlama_oyunu
             // 
             this.btn_çıkış.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.btn_çıkış.Location = new System.Drawing.Point(164, 415);
-            this.btn_çıkış.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_çıkış.Margin = new System.Windows.Forms.Padding(2);
             this.btn_çıkış.Name = "btn_çıkış";
             this.btn_çıkış.Size = new System.Drawing.Size(109, 29);
             this.btn_çıkış.TabIndex = 41;
@@ -327,7 +350,7 @@ namespace planlama_oyunu
             // 
             this.btngüncelle.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.btngüncelle.Location = new System.Drawing.Point(9, 415);
-            this.btngüncelle.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btngüncelle.Margin = new System.Windows.Forms.Padding(2);
             this.btngüncelle.Name = "btngüncelle";
             this.btngüncelle.Size = new System.Drawing.Size(109, 29);
             this.btngüncelle.TabIndex = 31;
@@ -338,7 +361,7 @@ namespace planlama_oyunu
             // txttc
             // 
             this.txttc.Location = new System.Drawing.Point(104, 212);
-            this.txttc.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txttc.Margin = new System.Windows.Forms.Padding(2);
             this.txttc.Name = "txttc";
             this.txttc.Size = new System.Drawing.Size(158, 24);
             this.txttc.TabIndex = 40;
@@ -357,7 +380,7 @@ namespace planlama_oyunu
             // txtşifre
             // 
             this.txtşifre.Location = new System.Drawing.Point(104, 166);
-            this.txtşifre.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtşifre.Margin = new System.Windows.Forms.Padding(2);
             this.txtşifre.Name = "txtşifre";
             this.txtşifre.Size = new System.Drawing.Size(158, 24);
             this.txtşifre.TabIndex = 38;
@@ -376,7 +399,7 @@ namespace planlama_oyunu
             // txtadres
             // 
             this.txtadres.Location = new System.Drawing.Point(104, 345);
-            this.txtadres.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtadres.Margin = new System.Windows.Forms.Padding(2);
             this.txtadres.Multiline = true;
             this.txtadres.Name = "txtadres";
             this.txtadres.Size = new System.Drawing.Size(158, 45);
@@ -385,7 +408,7 @@ namespace planlama_oyunu
             // txtemail
             // 
             this.txtemail.Location = new System.Drawing.Point(104, 303);
-            this.txtemail.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtemail.Margin = new System.Windows.Forms.Padding(2);
             this.txtemail.Name = "txtemail";
             this.txtemail.Size = new System.Drawing.Size(158, 24);
             this.txtemail.TabIndex = 33;
@@ -393,7 +416,7 @@ namespace planlama_oyunu
             // txttelefon
             // 
             this.txttelefon.Location = new System.Drawing.Point(104, 261);
-            this.txttelefon.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txttelefon.Margin = new System.Windows.Forms.Padding(2);
             this.txttelefon.Name = "txttelefon";
             this.txttelefon.Size = new System.Drawing.Size(158, 24);
             this.txttelefon.TabIndex = 34;
@@ -401,7 +424,7 @@ namespace planlama_oyunu
             // txtkullanıcı
             // 
             this.txtkullanıcı.Location = new System.Drawing.Point(104, 122);
-            this.txtkullanıcı.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtkullanıcı.Margin = new System.Windows.Forms.Padding(2);
             this.txtkullanıcı.Name = "txtkullanıcı";
             this.txtkullanıcı.Size = new System.Drawing.Size(158, 24);
             this.txtkullanıcı.TabIndex = 35;
@@ -409,7 +432,7 @@ namespace planlama_oyunu
             // txtsoyad
             // 
             this.txtsoyad.Location = new System.Drawing.Point(104, 82);
-            this.txtsoyad.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtsoyad.Margin = new System.Windows.Forms.Padding(2);
             this.txtsoyad.Name = "txtsoyad";
             this.txtsoyad.Size = new System.Drawing.Size(158, 24);
             this.txtsoyad.TabIndex = 36;
@@ -472,7 +495,7 @@ namespace planlama_oyunu
             // txtad
             // 
             this.txtad.Location = new System.Drawing.Point(104, 40);
-            this.txtad.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtad.Margin = new System.Windows.Forms.Padding(2);
             this.txtad.Name = "txtad";
             this.txtad.Size = new System.Drawing.Size(158, 24);
             this.txtad.TabIndex = 31;
@@ -507,7 +530,7 @@ namespace planlama_oyunu
             this.tabPage1.Controls.Add(this.lbl_userID);
             this.tabPage1.Location = new System.Drawing.Point(4, 24);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage1.Size = new System.Drawing.Size(870, 465);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Anasayfa";
@@ -662,7 +685,7 @@ namespace planlama_oyunu
             this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Location = new System.Drawing.Point(0, 39);
             this.tabControl1.Name = "tabControl1";
-            this.tabControl1.Padding = new System.Drawing.Point(128, 4);
+            this.tabControl1.Padding = new System.Drawing.Point(124, 4);
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(878, 493);
             this.tabControl1.TabIndex = 41;
@@ -671,9 +694,9 @@ namespace planlama_oyunu
             // 
             this.tabPage4.Controls.Add(this.groupBox4);
             this.tabPage4.Location = new System.Drawing.Point(4, 24);
-            this.tabPage4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage4.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(2);
             this.tabPage4.Size = new System.Drawing.Size(870, 465);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Envanter";
@@ -684,10 +707,16 @@ namespace planlama_oyunu
             this.groupBox4.BackColor = System.Drawing.Color.Thistle;
             this.groupBox4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("groupBox4.BackgroundImage")));
             this.groupBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.groupBox4.Controls.Add(this.dateTimePicker1);
-            this.groupBox4.Controls.Add(this.dateTimePicker4);
-            this.groupBox4.Controls.Add(this.dateTimePicker3);
+            this.groupBox4.Controls.Add(this.label24);
+            this.groupBox4.Controls.Add(this.label23);
+            this.groupBox4.Controls.Add(this.label22);
+            this.groupBox4.Controls.Add(this.label21);
             this.groupBox4.Controls.Add(this.dateTimePicker2);
+            this.groupBox4.Controls.Add(this.dateTimePicker3);
+            this.groupBox4.Controls.Add(this.dateTimePicker5);
+            this.groupBox4.Controls.Add(this.dateTimePicker6);
+            this.groupBox4.Controls.Add(this.satisDGV);
+            this.groupBox4.Controls.Add(this.alisDGV);
             this.groupBox4.Controls.Add(this.button4);
             this.groupBox4.Controls.Add(this.button3);
             this.groupBox4.Controls.Add(this.listwiev_item);
@@ -695,64 +724,132 @@ namespace planlama_oyunu
             this.groupBox4.Controls.Add(this.lbl_para);
             this.groupBox4.Controls.Add(this.label17);
             this.groupBox4.Location = new System.Drawing.Point(1, 0);
-            this.groupBox4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox4.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.groupBox4.Size = new System.Drawing.Size(902, 474);
+            this.groupBox4.Padding = new System.Windows.Forms.Padding(2);
+            this.groupBox4.Size = new System.Drawing.Size(902, 518);
             this.groupBox4.TabIndex = 8;
             this.groupBox4.TabStop = false;
             // 
-            // dateTimePicker1
+            // label24
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(791, 231);
-            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(67, 20);
-            this.dateTimePicker1.TabIndex = 47;
+            this.label24.AutoSize = true;
+            this.label24.Font = new System.Drawing.Font("Roboto Medium", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label24.Location = new System.Drawing.Point(621, 302);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(78, 14);
+            this.label24.TabIndex = 59;
+            this.label24.Text = "Bitiş tarihi:";
             // 
-            // dateTimePicker4
+            // label23
             // 
-            this.dateTimePicker4.Location = new System.Drawing.Point(711, 231);
-            this.dateTimePicker4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.dateTimePicker4.Name = "dateTimePicker4";
-            this.dateTimePicker4.Size = new System.Drawing.Size(67, 20);
-            this.dateTimePicker4.TabIndex = 46;
+            this.label23.AutoSize = true;
+            this.label23.Font = new System.Drawing.Font("Roboto Medium", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label23.Location = new System.Drawing.Point(587, 241);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(112, 14);
+            this.label23.TabIndex = 58;
+            this.label23.Text = "Başlangıç tarihi:";
             // 
-            // dateTimePicker3
+            // label22
             // 
-            this.dateTimePicker3.Location = new System.Drawing.Point(101, 231);
-            this.dateTimePicker3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.dateTimePicker3.Name = "dateTimePicker3";
-            this.dateTimePicker3.Size = new System.Drawing.Size(67, 20);
-            this.dateTimePicker3.TabIndex = 45;
+            this.label22.AutoSize = true;
+            this.label22.Font = new System.Drawing.Font("Roboto Medium", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label22.Location = new System.Drawing.Point(40, 296);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(78, 14);
+            this.label22.TabIndex = 57;
+            this.label22.Text = "Bitiş tarihi:";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("Roboto Medium", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label21.Location = new System.Drawing.Point(6, 241);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(112, 14);
+            this.label21.TabIndex = 56;
+            this.label21.Text = "Başlangıç tarihi:";
             // 
             // dateTimePicker2
             // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(21, 231);
-            this.dateTimePicker2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePicker2.Location = new System.Drawing.Point(717, 296);
             this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(67, 20);
-            this.dateTimePicker2.TabIndex = 44;
+            this.dateTimePicker2.Size = new System.Drawing.Size(144, 20);
+            this.dateTimePicker2.TabIndex = 55;
+            this.dateTimePicker2.Value = new System.DateTime(2021, 6, 10, 0, 0, 0, 0);
+            this.dateTimePicker2.ValueChanged += new System.EventHandler(this.dateTimePicker2_ValueChanged);
+            // 
+            // dateTimePicker3
+            // 
+            this.dateTimePicker3.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePicker3.Location = new System.Drawing.Point(717, 235);
+            this.dateTimePicker3.Name = "dateTimePicker3";
+            this.dateTimePicker3.Size = new System.Drawing.Size(144, 20);
+            this.dateTimePicker3.TabIndex = 54;
+            this.dateTimePicker3.Value = new System.DateTime(2021, 6, 1, 0, 0, 0, 0);
+            this.dateTimePicker3.ValueChanged += new System.EventHandler(this.dateTimePicker3_ValueChanged);
+            // 
+            // dateTimePicker5
+            // 
+            this.dateTimePicker5.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePicker5.Location = new System.Drawing.Point(136, 290);
+            this.dateTimePicker5.Margin = new System.Windows.Forms.Padding(2);
+            this.dateTimePicker5.Name = "dateTimePicker5";
+            this.dateTimePicker5.Size = new System.Drawing.Size(116, 20);
+            this.dateTimePicker5.TabIndex = 53;
+            this.dateTimePicker5.Value = new System.DateTime(2021, 6, 10, 0, 0, 0, 0);
+            this.dateTimePicker5.ValueChanged += new System.EventHandler(this.dateTimePicker5_ValueChanged);
+            // 
+            // dateTimePicker6
+            // 
+            this.dateTimePicker6.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePicker6.Location = new System.Drawing.Point(136, 235);
+            this.dateTimePicker6.Margin = new System.Windows.Forms.Padding(2);
+            this.dateTimePicker6.Name = "dateTimePicker6";
+            this.dateTimePicker6.Size = new System.Drawing.Size(116, 20);
+            this.dateTimePicker6.TabIndex = 52;
+            this.dateTimePicker6.Value = new System.DateTime(2021, 6, 1, 0, 0, 0, 0);
+            this.dateTimePicker6.ValueChanged += new System.EventHandler(this.dateTimePicker6_ValueChanged);
+            // 
+            // satisDGV
+            // 
+            this.satisDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.satisDGV.Location = new System.Drawing.Point(9, 39);
+            this.satisDGV.Name = "satisDGV";
+            this.satisDGV.Size = new System.Drawing.Size(355, 133);
+            this.satisDGV.TabIndex = 50;
+            // 
+            // alisDGV
+            // 
+            this.alisDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.alisDGV.Location = new System.Drawing.Point(509, 36);
+            this.alisDGV.Name = "alisDGV";
+            this.alisDGV.Size = new System.Drawing.Size(355, 133);
+            this.alisDGV.TabIndex = 49;
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(734, 266);
-            this.button4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.button4.Location = new System.Drawing.Point(762, 351);
+            this.button4.Margin = new System.Windows.Forms.Padding(2);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(107, 29);
+            this.button4.Size = new System.Drawing.Size(99, 42);
             this.button4.TabIndex = 42;
-            this.button4.Text = "Alış Raporu";
+            this.button4.Text = "Alış Raporu Oluşturuldu";
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(39, 266);
-            this.button3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.button3.Location = new System.Drawing.Point(162, 351);
+            this.button3.Margin = new System.Windows.Forms.Padding(2);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(107, 29);
+            this.button3.Size = new System.Drawing.Size(90, 42);
             this.button3.TabIndex = 41;
-            this.button3.Text = "Satış Raporu";
+            this.button3.Text = "Satış Raporu Oluştur";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
@@ -766,9 +863,9 @@ namespace planlama_oyunu
             this.columnHeader4});
             this.listwiev_item.FullRowSelect = true;
             this.listwiev_item.HideSelection = false;
-            this.listwiev_item.Location = new System.Drawing.Point(191, 81);
+            this.listwiev_item.Location = new System.Drawing.Point(280, 175);
             this.listwiev_item.Name = "listwiev_item";
-            this.listwiev_item.Size = new System.Drawing.Size(495, 329);
+            this.listwiev_item.Size = new System.Drawing.Size(301, 277);
             this.listwiev_item.TabIndex = 4;
             this.listwiev_item.UseCompatibleStateImageBehavior = false;
             this.listwiev_item.View = System.Windows.Forms.View.Details;
@@ -776,17 +873,17 @@ namespace planlama_oyunu
             // columnHeader1
             // 
             this.columnHeader1.Text = "UserID";
-            this.columnHeader1.Width = 94;
+            this.columnHeader1.Width = 65;
             // 
             // columnHeader2
             // 
             this.columnHeader2.Text = "Item adı";
-            this.columnHeader2.Width = 136;
+            this.columnHeader2.Width = 65;
             // 
             // columnHeader3
             // 
             this.columnHeader3.Text = "Item fiyatı";
-            this.columnHeader3.Width = 164;
+            this.columnHeader3.Width = 65;
             // 
             // columnHeader4
             // 
@@ -797,7 +894,7 @@ namespace planlama_oyunu
             // 
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label19.Location = new System.Drawing.Point(404, 52);
+            this.label19.Location = new System.Drawing.Point(396, 156);
             this.label19.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(80, 16);
@@ -808,7 +905,7 @@ namespace planlama_oyunu
             // 
             this.lbl_para.AutoSize = true;
             this.lbl_para.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lbl_para.Location = new System.Drawing.Point(131, 29);
+            this.lbl_para.Location = new System.Drawing.Point(120, 15);
             this.lbl_para.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_para.Name = "lbl_para";
             this.lbl_para.Size = new System.Drawing.Size(24, 18);
@@ -819,24 +916,24 @@ namespace planlama_oyunu
             // 
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label17.Location = new System.Drawing.Point(17, 29);
+            this.label17.Location = new System.Drawing.Point(6, 15);
             this.label17.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(56, 18);
             this.label17.TabIndex = 5;
             this.label17.Text = "Bakiye:";
             // 
-            // button2
+            // buttonExit
             // 
-            this.button2.AccessibleRole = System.Windows.Forms.AccessibleRole.ScrollBar;
-            this.button2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button2.BackgroundImage")));
-            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button2.Location = new System.Drawing.Point(826, 3);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(40, 30);
-            this.button2.TabIndex = 42;
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click_1);
+            this.buttonExit.AccessibleRole = System.Windows.Forms.AccessibleRole.ScrollBar;
+            this.buttonExit.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonExit.BackgroundImage")));
+            this.buttonExit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonExit.Location = new System.Drawing.Point(834, -1);
+            this.buttonExit.Name = "buttonExit";
+            this.buttonExit.Size = new System.Drawing.Size(40, 34);
+            this.buttonExit.TabIndex = 42;
+            this.buttonExit.UseVisualStyleBackColor = true;
+            this.buttonExit.Click += new System.EventHandler(this.buttonExit_Click);
             // 
             // Form_bilgiler
             // 
@@ -844,10 +941,10 @@ namespace planlama_oyunu
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.ClientSize = new System.Drawing.Size(874, 527);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.buttonExit);
             this.Controls.Add(this.tabControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form_bilgiler";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "HESAP";
@@ -866,6 +963,8 @@ namespace planlama_oyunu
             this.tabPage4.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.satisDGV)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.alisDGV)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -928,15 +1027,22 @@ namespace planlama_oyunu
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dataGridView3;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button buttonExit;
         private System.Windows.Forms.Button btnTalepOlustur;
         private System.Windows.Forms.TextBox istenenFiyatTxt;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.ComboBox cmbMoneyType;
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
         private System.Windows.Forms.DateTimePicker dateTimePicker3;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker4;
+        private System.Windows.Forms.DateTimePicker dateTimePicker5;
+        private System.Windows.Forms.DateTimePicker dateTimePicker6;
+        private System.Windows.Forms.DataGridView satisDGV;
+        private System.Windows.Forms.DataGridView alisDGV;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Label label21;
     }
 }

@@ -34,6 +34,7 @@ namespace planlama_oyunu
                 ListViewItem ekle = new ListViewItem();
                 ekle.Text = güncelle["userID"].ToString();
                 ekle.SubItems.Add(güncelle["para_miktar"].ToString());
+                ekle.SubItems.Add(güncelle["para_birim"].ToString());
                 listView_para_sorgu.Items.Add(ekle);
             }
             baglanti.Close();
@@ -78,16 +79,20 @@ namespace planlama_oyunu
             itembasvurugöster();
             parabasvurugöster();
 
-           
+
         }
 
         private void listView_para_sorgu_SelectedIndexChanged(object sender, EventArgs e)
         {
+            para para = new para();
+
             foreach (ListViewItem lst in listView_para_sorgu.SelectedItems)
             {
                 txtlist_ID.Text = lst.SubItems[0].Text;
-                txtlist_transfer_Para.Text = lst.SubItems[1].Text;
+                int paraBirimiTemp = Convert.ToInt32(lst.SubItems[1].Text);
+                txtlist_transfer_Para.Text = Convert.ToString(para.para_birimi_planla(lst.SubItems[2].Text) * paraBirimiTemp);
             }
+
             baglanti.Open();
             komut.Connection = baglanti;
             komut.CommandText = "select * from para where userID like '" + txtlist_ID.Text + "'";
@@ -104,22 +109,36 @@ namespace planlama_oyunu
 
         private void btnParaOnay_Click(object sender, EventArgs e)
         {
+            if (txtlist_ID.Text == "" || txtlist_mevcut_Para.Text == "" || txtlist_transfer_Para.Text == "" || txt_güncel_para.Text == "")
+            {
+                MessageBox.Show("Bu işlemi yapmak için bilgileri seçiniz!");
+            }
+            else
+            {
+                admin.para_onay(Convert.ToInt32(txtlist_ID.Text), Convert.ToInt32(txt_güncel_para.Text));
+                MessageBox.Show(txtlist_ID.Text + "userID li kullanıcının parasını" + txt_güncel_para.Text + "olarak güncellediniz.");
 
-            admin.para_onay(Convert.ToInt32(txtlist_ID.Text), Convert.ToInt32(txt_güncel_para.Text));
-            MessageBox.Show(txtlist_ID.Text + "userID li kullanıcının parasını" + txt_güncel_para.Text + "olarak güncellediniz.");
+                admin.vei_temizle_para(Convert.ToInt32(txtlist_ID.Text));
+                temizle();
+                parabasvurugöster();
+            }
 
-            admin.vei_temizle_para(Convert.ToInt32(txtlist_ID.Text));
-            temizle();
-            parabasvurugöster();
         }
 
         private void btnParaRed_Click(object sender, EventArgs e)
         {
+            if (txtlist_ID.Text == "" || txtlist_mevcut_Para.Text == "" || txtlist_transfer_Para.Text == "" || txt_güncel_para.Text == "")
+            {
+                MessageBox.Show("Bu işlemi yapmak için bilgileri seçiniz!");
+            }
+            else
+            {
+                admin.vei_temizle_para(Convert.ToInt32(txtlist_ID.Text));
+                MessageBox.Show(txtlist_ID.Text + "userID li kullanıcının para başvurusunu reddettiniz.");
+                temizle();
+                parabasvurugöster();
+            }
 
-            admin.vei_temizle_para(Convert.ToInt32(txtlist_ID.Text));
-            MessageBox.Show(txtlist_ID.Text + "userID li kullanıcının para başvurusunu reddettiniz.");
-            temizle();
-            parabasvurugöster();
         }
 
         private void listView_item_sorgu_SelectedIndexChanged(object sender, EventArgs e)
@@ -135,22 +154,36 @@ namespace planlama_oyunu
 
         private void btn_item_onay_Click(object sender, EventArgs e)
         {
-            admin.item_onay(Convert.ToInt32(txt_list_item_ID.Text), txt_list_item_itemad.Text, Convert.ToInt32(txt_list_item_itemfiyat.Text), Convert.ToInt32(txt_list_item_itemmiktar.Text));
-            itemler.item_kontrol(Convert.ToInt32(txt_list_item_ID.Text), txt_list_item_itemad.Text, Convert.ToInt32(txt_list_item_itemfiyat.Text), Convert.ToInt32(txt_list_item_itemmiktar.Text));
-            MessageBox.Show(txt_list_item_ID.Text + " ID li kullanıcının item başvurusunu onayladınız");
+            if (txt_list_item_ID.Text == "" || txt_list_item_itemad.Text == "" || txt_list_item_itemfiyat.Text == "" || txt_list_item_itemmiktar.Text == "")
+            {
+                MessageBox.Show("Bu işlemi yapmak için bilgileri seçiniz!");
+            }
+            else
+            {
+                admin.item_onay(Convert.ToInt32(txt_list_item_ID.Text), txt_list_item_itemad.Text, Convert.ToInt32(txt_list_item_itemfiyat.Text), Convert.ToInt32(txt_list_item_itemmiktar.Text));
+                itemler.item_kontrol(Convert.ToInt32(txt_list_item_ID.Text), txt_list_item_itemad.Text, Convert.ToInt32(txt_list_item_itemfiyat.Text), Convert.ToInt32(txt_list_item_itemmiktar.Text));
+                MessageBox.Show(txt_list_item_ID.Text + " ID li kullanıcının item başvurusunu onayladınız");
 
-            admin.veri_temizle_item(Convert.ToInt32(txt_list_item_ID.Text));
-            temizle_item();
-            itembasvurugöster();
+                admin.veri_temizle_item(Convert.ToInt32(txt_list_item_ID.Text));
+                temizle_item();
+                itembasvurugöster();
+            }
+
         }
 
         private void btn_item_red_Click(object sender, EventArgs e)
         {
-
-            admin.veri_temizle_item(Convert.ToInt32(txt_list_item_ID.Text));
-            MessageBox.Show(txt_list_item_ID.Text + " ID li kullanıcının item başvurusunu reddettiniz");
-            temizle_item();
-            itembasvurugöster();
+            if (txt_list_item_ID.Text == "" || txt_list_item_itemad.Text == "" || txt_list_item_itemfiyat.Text == "" || txt_list_item_itemmiktar.Text == "")
+            {
+                MessageBox.Show("Bu işlemi yapmak için bilgileri seçiniz!");
+            }
+            else
+            {
+                admin.veri_temizle_item(Convert.ToInt32(txt_list_item_ID.Text));
+                MessageBox.Show(txt_list_item_ID.Text + " ID li kullanıcının item başvurusunu reddettiniz");
+                temizle_item();
+                itembasvurugöster();
+            }
         }
 
         private void btn_çıkış_Click(object sender, EventArgs e)
@@ -159,6 +192,10 @@ namespace planlama_oyunu
             this.Close();
             yeni.Show();
         }
-    }
 
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+    }
 }

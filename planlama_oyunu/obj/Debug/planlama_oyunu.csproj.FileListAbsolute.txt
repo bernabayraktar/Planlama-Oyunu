@@ -107,3 +107,16 @@ C:\Users\Turing\Desktop\Planlama Oyunu\planlama_oyunu\obj\Debug\planlama_oyunu.c
 C:\Users\Turing\Desktop\Planlama Oyunu\planlama_oyunu\obj\Debug\planlama_oyunu.csproj.CoreCompileInputs.cache
 C:\Users\Turing\Desktop\Planlama Oyunu\planlama_oyunu\obj\Debug\planlama_oyunu.exe
 C:\Users\Turing\Desktop\Planlama Oyunu\planlama_oyunu\obj\Debug\planlama_oyunu.pdb
+C:\Users\ASUS\Desktop\Planlama Oyunu\planlama_oyunu\obj\Debug\planlama_oyunu.csproj.AssemblyReference.cache
+C:\Users\ASUS\Desktop\Planlama Oyunu\planlama_oyunu\obj\Debug\planlama_oyunu.Form_admin_onay.resources
+C:\Users\ASUS\Desktop\Planlama Oyunu\planlama_oyunu\obj\Debug\planlama_oyunu.Form_bilgiler.resources
+C:\Users\ASUS\Desktop\Planlama Oyunu\planlama_oyunu\obj\Debug\planlama_oyunu.Form_login.resources
+C:\Users\ASUS\Desktop\Planlama Oyunu\planlama_oyunu\obj\Debug\planlama_oyunu.Properties.Resources.resources
+C:\Users\ASUS\Desktop\Planlama Oyunu\planlama_oyunu\obj\Debug\planlama_oyunu.csproj.GenerateResource.cache
+C:\Users\ASUS\Desktop\Planlama Oyunu\planlama_oyunu\obj\Debug\planlama_oyunu.csproj.CoreCompileInputs.cache
+C:\Users\ASUS\Desktop\Planlama Oyunu\planlama_oyunu\obj\Debug\planlama_oyunu.exe
+C:\Users\ASUS\Desktop\Planlama Oyunu\planlama_oyunu\obj\Debug\planlama_oyunu.pdb
+C:\Users\ASUS\Desktop\Planlama Oyunu\planlama_oyunu\bin\Debug\planlama_oyunu.exe.config
+C:\Users\ASUS\Desktop\Planlama Oyunu\planlama_oyunu\bin\Debug\planlama_oyunu.exe
+C:\Users\ASUS\Desktop\Planlama Oyunu\planlama_oyunu\bin\Debug\planlama_oyunu.pdb
+C:\Users\ASUS\Desktop\Planlama Oyunu\planlama_oyunu\obj\Debug\planlama_oyunu.csproj.ResolveComReference.cache

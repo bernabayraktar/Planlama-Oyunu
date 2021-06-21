@@ -44,7 +44,7 @@ namespace planlama_oyunu
             baglanti.Open();
             OleDbCommand oleDb;
             OleDbDataReader oku;
-            string sqlkodu = "delete from para_başvuru where userID=@userıd";
+            string sqlkodu = "select *from para_başvuru where userID=@userıd";
             oleDb = new OleDbCommand(sqlkodu, baglanti);
             oleDb.Parameters.AddWithValue("@userıd", para.para_userID);
             oku = oleDb.ExecuteReader();

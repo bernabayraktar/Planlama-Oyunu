@@ -54,10 +54,7 @@ namespace planlama_oyunu
                 }
             }
             
-
             baglanti.Close();
         }
-
-
     }
 }

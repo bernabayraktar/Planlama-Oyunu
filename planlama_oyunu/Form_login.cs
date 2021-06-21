@@ -18,7 +18,7 @@ namespace planlama_oyunu
         {
             InitializeComponent();
         }
-        OleDbConnection bağlantı = new OleDbConnection("Provider = Microsoft.Jet.OLEDB.4.0; Data Source = planlama oyunu db.mdb");
+        OleDbConnection baglanti = new OleDbConnection("Provider = Microsoft.Jet.OLEDB.4.0; Data Source = planlama oyunu db.mdb");
         OleDbCommand komut;
         OleDbDataReader oku;
         
@@ -41,19 +41,19 @@ namespace planlama_oyunu
         {
             k.kullanıcı_ekle(txtad.Text, txtsoyadı.Text, txtkullanıcıad.Text, txtşifre.Text, txttc.Text, txttelefon.Text, txtemail.Text, txtadres.Text);
 
-            bağlantı.Open();
-            OleDbCommand komut = new OleDbCommand("select * from kullanıcılar where email like '" + txtemail.Text + "'", bağlantı);
+            baglanti.Open();
+            OleDbCommand komut = new OleDbCommand("select * from kullanıcılar where email like '" + txtemail.Text + "'", baglanti);
 
             OleDbDataReader oku = komut.ExecuteReader();
             while (oku.Read())
             {
                 usertype = Convert.ToInt32(oku["userID"]);
             }
-            bağlantı.Close();
-            bağlantı.Open();
-            OleDbCommand oleDb = new OleDbCommand("insert into para values('" + usertype + "','" + 0 + "')", bağlantı);
+            baglanti.Close();
+            baglanti.Open();
+            OleDbCommand oleDb = new OleDbCommand("insert into para values('" + usertype + "','" + 0 + "')", baglanti);
             oleDb.ExecuteNonQuery();
-            bağlantı.Close();
+            baglanti.Close();
             MessageBox.Show("kayıt işleminiz gerçekleşti");
             cleaner();
             Form_bilgiler yeni = new Form_bilgiler();
@@ -63,10 +63,10 @@ namespace planlama_oyunu
 
         private void btn_giriş_Click_1(object sender, EventArgs e)
         {
-            bağlantı.Open();
+            baglanti.Open();
             komut = new OleDbCommand();
             komut.CommandText = "select * from kullanıcılar where email=@mail and şifre=@parola";
-            komut.Connection = bağlantı;
+            komut.Connection = baglanti;
 
             komut.Parameters.AddWithValue("@mail", txt_ent_mail.Text);
             komut.Parameters.AddWithValue("@parola", txt_ent_şifre.Text);
@@ -88,7 +88,7 @@ namespace planlama_oyunu
             {
                 MessageBox.Show("kullanıcı adı veya şifre hatalı", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            bağlantı.Close();
+            baglanti.Close();
         }
     }
 }

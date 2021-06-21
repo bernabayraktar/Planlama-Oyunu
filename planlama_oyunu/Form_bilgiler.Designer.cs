@@ -65,6 +65,9 @@ namespace planlama_oyunu
             this.txtad = new System.Windows.Forms.TextBox();
             this.label18 = new System.Windows.Forms.Label();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.btnTalepOlustur = new System.Windows.Forms.Button();
+            this.istenenFiyatTxt = new System.Windows.Forms.TextBox();
+            this.label20 = new System.Windows.Forms.Label();
             this.dataGridView3 = new System.Windows.Forms.DataGridView();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -78,6 +81,12 @@ namespace planlama_oyunu
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePicker4 = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePicker3 = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
             this.listwiev_item = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -108,8 +117,8 @@ namespace planlama_oyunu
             this.tabPage3.Controls.Add(this.groupBox1);
             this.tabPage3.Location = new System.Drawing.Point(4, 24);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(899, 462);
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage3.Size = new System.Drawing.Size(870, 465);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Hesabım";
             // 
@@ -120,22 +129,22 @@ namespace planlama_oyunu
             this.groupBox3.Controls.Add(this.label15);
             this.groupBox3.Controls.Add(this.txt_para_başvuru);
             this.groupBox3.Controls.Add(this.label14);
-            this.groupBox3.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.groupBox3.Location = new System.Drawing.Point(376, 260);
-            this.groupBox3.Margin = new System.Windows.Forms.Padding(2);
+            this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.groupBox3.Location = new System.Drawing.Point(376, 267);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox3.Size = new System.Drawing.Size(413, 162);
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox3.Size = new System.Drawing.Size(413, 166);
             this.groupBox3.TabIndex = 41;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Para Yatırma Başvurusunda Bulunun";
             // 
             // btn_para_başvuru
             // 
-            this.btn_para_başvuru.Location = new System.Drawing.Point(286, 115);
-            this.btn_para_başvuru.Margin = new System.Windows.Forms.Padding(2);
+            this.btn_para_başvuru.Location = new System.Drawing.Point(286, 118);
+            this.btn_para_başvuru.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btn_para_başvuru.Name = "btn_para_başvuru";
-            this.btn_para_başvuru.Size = new System.Drawing.Size(107, 28);
+            this.btn_para_başvuru.Size = new System.Drawing.Size(107, 29);
             this.btn_para_başvuru.TabIndex = 40;
             this.btn_para_başvuru.Text = "Para Başvuru";
             this.btn_para_başvuru.UseVisualStyleBackColor = true;
@@ -144,8 +153,8 @@ namespace planlama_oyunu
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label15.Location = new System.Drawing.Point(236, 66);
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label15.Location = new System.Drawing.Point(236, 68);
             this.label15.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(35, 18);
@@ -154,17 +163,17 @@ namespace planlama_oyunu
             // 
             // txt_para_başvuru
             // 
-            this.txt_para_başvuru.Location = new System.Drawing.Point(107, 65);
-            this.txt_para_başvuru.Margin = new System.Windows.Forms.Padding(2);
+            this.txt_para_başvuru.Location = new System.Drawing.Point(107, 67);
+            this.txt_para_başvuru.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txt_para_başvuru.Name = "txt_para_başvuru";
-            this.txt_para_başvuru.Size = new System.Drawing.Size(125, 23);
+            this.txt_para_başvuru.Size = new System.Drawing.Size(125, 22);
             this.txt_para_başvuru.TabIndex = 33;
             // 
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label14.Location = new System.Drawing.Point(19, 67);
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label14.Location = new System.Drawing.Point(19, 69);
             this.label14.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(84, 18);
@@ -182,30 +191,30 @@ namespace planlama_oyunu
             this.groupBox2.Controls.Add(this.label10);
             this.groupBox2.Controls.Add(this.txt_item_miktar);
             this.groupBox2.Controls.Add(this.label9);
-            this.groupBox2.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.groupBox2.Location = new System.Drawing.Point(333, 25);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox2.Size = new System.Drawing.Size(496, 217);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Size = new System.Drawing.Size(496, 223);
             this.groupBox2.TabIndex = 31;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Ürün Ekleme Başvurusunda Bulunun";
             // 
             // txt_item_başvuru
             // 
-            this.txt_item_başvuru.Location = new System.Drawing.Point(166, 58);
-            this.txt_item_başvuru.Margin = new System.Windows.Forms.Padding(2);
+            this.txt_item_başvuru.Location = new System.Drawing.Point(166, 59);
+            this.txt_item_başvuru.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txt_item_başvuru.Name = "txt_item_başvuru";
-            this.txt_item_başvuru.Size = new System.Drawing.Size(76, 26);
+            this.txt_item_başvuru.Size = new System.Drawing.Size(76, 24);
             this.txt_item_başvuru.TabIndex = 40;
             // 
             // btn_item_başvuru
             // 
-            this.btn_item_başvuru.Location = new System.Drawing.Point(359, 174);
-            this.btn_item_başvuru.Margin = new System.Windows.Forms.Padding(2);
+            this.btn_item_başvuru.Location = new System.Drawing.Point(359, 179);
+            this.btn_item_başvuru.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btn_item_başvuru.Name = "btn_item_başvuru";
-            this.btn_item_başvuru.Size = new System.Drawing.Size(107, 28);
+            this.btn_item_başvuru.Size = new System.Drawing.Size(107, 29);
             this.btn_item_başvuru.TabIndex = 39;
             this.btn_item_başvuru.Text = "Onayla";
             this.btn_item_başvuru.UseVisualStyleBackColor = true;
@@ -214,60 +223,60 @@ namespace planlama_oyunu
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label13.Location = new System.Drawing.Point(53, 153);
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label13.Location = new System.Drawing.Point(53, 157);
             this.label13.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(83, 18);
+            this.label13.Size = new System.Drawing.Size(82, 18);
             this.label13.TabIndex = 37;
             this.label13.Text = "Ürün Fiyatı:";
             // 
             // txt_item_fiyat_başvuru
             // 
-            this.txt_item_fiyat_başvuru.Location = new System.Drawing.Point(166, 150);
-            this.txt_item_fiyat_başvuru.Margin = new System.Windows.Forms.Padding(2);
+            this.txt_item_fiyat_başvuru.Location = new System.Drawing.Point(166, 154);
+            this.txt_item_fiyat_başvuru.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txt_item_fiyat_başvuru.Name = "txt_item_fiyat_başvuru";
-            this.txt_item_fiyat_başvuru.Size = new System.Drawing.Size(76, 26);
+            this.txt_item_fiyat_başvuru.Size = new System.Drawing.Size(76, 24);
             this.txt_item_fiyat_başvuru.TabIndex = 38;
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label11.Location = new System.Drawing.Point(246, 110);
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label11.Location = new System.Drawing.Point(246, 113);
             this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(48, 18);
+            this.label11.Size = new System.Drawing.Size(46, 18);
             this.label11.TabIndex = 36;
             this.label11.Text = "(kg/L)";
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label10.Location = new System.Drawing.Point(53, 108);
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label10.Location = new System.Drawing.Point(53, 111);
             this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(94, 18);
+            this.label10.Size = new System.Drawing.Size(92, 18);
             this.label10.TabIndex = 34;
             this.label10.Text = "Ürün Miktarı:";
             // 
             // txt_item_miktar
             // 
-            this.txt_item_miktar.Location = new System.Drawing.Point(166, 105);
-            this.txt_item_miktar.Margin = new System.Windows.Forms.Padding(2);
+            this.txt_item_miktar.Location = new System.Drawing.Point(166, 108);
+            this.txt_item_miktar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txt_item_miktar.Name = "txt_item_miktar";
-            this.txt_item_miktar.Size = new System.Drawing.Size(76, 26);
+            this.txt_item_miktar.Size = new System.Drawing.Size(76, 24);
             this.txt_item_miktar.TabIndex = 35;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label9.Location = new System.Drawing.Point(53, 61);
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label9.Location = new System.Drawing.Point(53, 63);
             this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(69, 18);
+            this.label9.Size = new System.Drawing.Size(68, 18);
             this.label9.TabIndex = 32;
             this.label9.Text = "Ürün Adı:";
             // 
@@ -292,12 +301,12 @@ namespace planlama_oyunu
             this.groupBox1.Controls.Add(this.label16);
             this.groupBox1.Controls.Add(this.txtad);
             this.groupBox1.Controls.Add(this.label18);
-            this.groupBox1.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.groupBox1.Location = new System.Drawing.Point(17, 15);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox1.Size = new System.Drawing.Size(287, 436);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Size = new System.Drawing.Size(287, 447);
             this.groupBox1.TabIndex = 30;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Profil Bilgileri";
@@ -305,10 +314,10 @@ namespace planlama_oyunu
             // btn_çıkış
             // 
             this.btn_çıkış.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.btn_çıkış.Location = new System.Drawing.Point(164, 404);
-            this.btn_çıkış.Margin = new System.Windows.Forms.Padding(2);
+            this.btn_çıkış.Location = new System.Drawing.Point(164, 415);
+            this.btn_çıkış.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btn_çıkış.Name = "btn_çıkış";
-            this.btn_çıkış.Size = new System.Drawing.Size(109, 28);
+            this.btn_çıkış.Size = new System.Drawing.Size(109, 29);
             this.btn_çıkış.TabIndex = 41;
             this.btn_çıkış.Text = "Çıkış";
             this.btn_çıkış.UseVisualStyleBackColor = false;
@@ -317,10 +326,10 @@ namespace planlama_oyunu
             // btngüncelle
             // 
             this.btngüncelle.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.btngüncelle.Location = new System.Drawing.Point(9, 404);
-            this.btngüncelle.Margin = new System.Windows.Forms.Padding(2);
+            this.btngüncelle.Location = new System.Drawing.Point(9, 415);
+            this.btngüncelle.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btngüncelle.Name = "btngüncelle";
-            this.btngüncelle.Size = new System.Drawing.Size(109, 28);
+            this.btngüncelle.Size = new System.Drawing.Size(109, 29);
             this.btngüncelle.TabIndex = 31;
             this.btngüncelle.Text = "Güncelle";
             this.btngüncelle.UseVisualStyleBackColor = false;
@@ -328,154 +337,154 @@ namespace planlama_oyunu
             // 
             // txttc
             // 
-            this.txttc.Location = new System.Drawing.Point(104, 207);
-            this.txttc.Margin = new System.Windows.Forms.Padding(2);
+            this.txttc.Location = new System.Drawing.Point(104, 212);
+            this.txttc.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txttc.Name = "txttc";
-            this.txttc.Size = new System.Drawing.Size(158, 26);
+            this.txttc.Size = new System.Drawing.Size(158, 24);
             this.txttc.TabIndex = 40;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label3.Location = new System.Drawing.Point(13, 212);
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label3.Location = new System.Drawing.Point(13, 217);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(82, 15);
+            this.label3.Size = new System.Drawing.Size(87, 16);
             this.label3.TabIndex = 39;
             this.label3.Text = "TC kimlik No:";
             // 
             // txtşifre
             // 
-            this.txtşifre.Location = new System.Drawing.Point(104, 162);
-            this.txtşifre.Margin = new System.Windows.Forms.Padding(2);
+            this.txtşifre.Location = new System.Drawing.Point(104, 166);
+            this.txtşifre.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtşifre.Name = "txtşifre";
-            this.txtşifre.Size = new System.Drawing.Size(158, 26);
+            this.txtşifre.Size = new System.Drawing.Size(158, 24);
             this.txtşifre.TabIndex = 38;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label2.Location = new System.Drawing.Point(13, 167);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label2.Location = new System.Drawing.Point(13, 171);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(37, 15);
+            this.label2.Size = new System.Drawing.Size(38, 16);
             this.label2.TabIndex = 37;
             this.label2.Text = "Şifre:";
             // 
             // txtadres
             // 
-            this.txtadres.Location = new System.Drawing.Point(104, 337);
-            this.txtadres.Margin = new System.Windows.Forms.Padding(2);
+            this.txtadres.Location = new System.Drawing.Point(104, 345);
+            this.txtadres.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtadres.Multiline = true;
             this.txtadres.Name = "txtadres";
-            this.txtadres.Size = new System.Drawing.Size(158, 44);
+            this.txtadres.Size = new System.Drawing.Size(158, 45);
             this.txtadres.TabIndex = 32;
             // 
             // txtemail
             // 
-            this.txtemail.Location = new System.Drawing.Point(104, 296);
-            this.txtemail.Margin = new System.Windows.Forms.Padding(2);
+            this.txtemail.Location = new System.Drawing.Point(104, 303);
+            this.txtemail.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtemail.Name = "txtemail";
-            this.txtemail.Size = new System.Drawing.Size(158, 26);
+            this.txtemail.Size = new System.Drawing.Size(158, 24);
             this.txtemail.TabIndex = 33;
             // 
             // txttelefon
             // 
-            this.txttelefon.Location = new System.Drawing.Point(104, 254);
-            this.txttelefon.Margin = new System.Windows.Forms.Padding(2);
+            this.txttelefon.Location = new System.Drawing.Point(104, 261);
+            this.txttelefon.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txttelefon.Name = "txttelefon";
-            this.txttelefon.Size = new System.Drawing.Size(158, 26);
+            this.txttelefon.Size = new System.Drawing.Size(158, 24);
             this.txttelefon.TabIndex = 34;
             // 
             // txtkullanıcı
             // 
-            this.txtkullanıcı.Location = new System.Drawing.Point(104, 119);
-            this.txtkullanıcı.Margin = new System.Windows.Forms.Padding(2);
+            this.txtkullanıcı.Location = new System.Drawing.Point(104, 122);
+            this.txtkullanıcı.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtkullanıcı.Name = "txtkullanıcı";
-            this.txtkullanıcı.Size = new System.Drawing.Size(158, 26);
+            this.txtkullanıcı.Size = new System.Drawing.Size(158, 24);
             this.txtkullanıcı.TabIndex = 35;
             // 
             // txtsoyad
             // 
-            this.txtsoyad.Location = new System.Drawing.Point(104, 80);
-            this.txtsoyad.Margin = new System.Windows.Forms.Padding(2);
+            this.txtsoyad.Location = new System.Drawing.Point(104, 82);
+            this.txtsoyad.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtsoyad.Name = "txtsoyad";
-            this.txtsoyad.Size = new System.Drawing.Size(158, 26);
+            this.txtsoyad.Size = new System.Drawing.Size(158, 24);
             this.txtsoyad.TabIndex = 36;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label4.Location = new System.Drawing.Point(13, 44);
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label4.Location = new System.Drawing.Point(13, 45);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(25, 15);
+            this.label4.Size = new System.Drawing.Size(28, 16);
             this.label4.TabIndex = 2;
             this.label4.Text = "Ad:";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label6.Location = new System.Drawing.Point(13, 124);
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label6.Location = new System.Drawing.Point(13, 127);
             this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(79, 15);
+            this.label6.Size = new System.Drawing.Size(83, 16);
             this.label6.TabIndex = 4;
             this.label6.Text = "Kullanıcı Adı:";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label8.Location = new System.Drawing.Point(13, 85);
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label8.Location = new System.Drawing.Point(13, 87);
             this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(45, 15);
+            this.label8.Size = new System.Drawing.Size(51, 16);
             this.label8.TabIndex = 6;
             this.label8.Text = "Soyad:";
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label12.Location = new System.Drawing.Point(13, 259);
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label12.Location = new System.Drawing.Point(13, 265);
             this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(53, 15);
+            this.label12.Size = new System.Drawing.Size(57, 16);
             this.label12.TabIndex = 10;
             this.label12.Text = "Telefon:";
             // 
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label16.Location = new System.Drawing.Point(13, 301);
+            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label16.Location = new System.Drawing.Point(13, 309);
             this.label16.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(45, 15);
+            this.label16.Size = new System.Drawing.Size(49, 16);
             this.label16.TabIndex = 14;
             this.label16.Text = "E-Mail:";
             // 
             // txtad
             // 
-            this.txtad.Location = new System.Drawing.Point(104, 39);
-            this.txtad.Margin = new System.Windows.Forms.Padding(2);
+            this.txtad.Location = new System.Drawing.Point(104, 40);
+            this.txtad.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtad.Name = "txtad";
-            this.txtad.Size = new System.Drawing.Size(158, 26);
+            this.txtad.Size = new System.Drawing.Size(158, 24);
             this.txtad.TabIndex = 31;
             // 
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label18.Location = new System.Drawing.Point(13, 342);
+            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label18.Location = new System.Drawing.Point(13, 351);
             this.label18.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(43, 15);
+            this.label18.Size = new System.Drawing.Size(47, 16);
             this.label18.TabIndex = 16;
             this.label18.Text = "Adres:";
             // 
@@ -483,6 +492,9 @@ namespace planlama_oyunu
             // 
             this.tabPage1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tabPage1.BackgroundImage")));
             this.tabPage1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.tabPage1.Controls.Add(this.btnTalepOlustur);
+            this.tabPage1.Controls.Add(this.istenenFiyatTxt);
+            this.tabPage1.Controls.Add(this.label20);
             this.tabPage1.Controls.Add(this.dataGridView3);
             this.tabPage1.Controls.Add(this.comboBox1);
             this.tabPage1.Controls.Add(this.label1);
@@ -495,26 +507,58 @@ namespace planlama_oyunu
             this.tabPage1.Controls.Add(this.lbl_userID);
             this.tabPage1.Location = new System.Drawing.Point(4, 24);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(899, 462);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage1.Size = new System.Drawing.Size(870, 465);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Anasayfa";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // btnTalepOlustur
+            // 
+            this.btnTalepOlustur.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.btnTalepOlustur.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnTalepOlustur.Location = new System.Drawing.Point(713, 396);
+            this.btnTalepOlustur.Name = "btnTalepOlustur";
+            this.btnTalepOlustur.Size = new System.Drawing.Size(113, 33);
+            this.btnTalepOlustur.TabIndex = 17;
+            this.btnTalepOlustur.Text = "Talep Oluştur";
+            this.btnTalepOlustur.UseVisualStyleBackColor = false;
+            this.btnTalepOlustur.Click += new System.EventHandler(this.btnTalepOlustur_Click);
+            // 
+            // istenenFiyatTxt
+            // 
+            this.istenenFiyatTxt.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.istenenFiyatTxt.Location = new System.Drawing.Point(538, 369);
+            this.istenenFiyatTxt.Name = "istenenFiyatTxt";
+            this.istenenFiyatTxt.Size = new System.Drawing.Size(100, 20);
+            this.istenenFiyatTxt.TabIndex = 16;
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.BackColor = System.Drawing.Color.Red;
+            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label20.Location = new System.Drawing.Point(361, 370);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(171, 16);
+            this.label20.TabIndex = 15;
+            this.label20.Text = "Almak İstediğiniz Fiyat :";
             // 
             // dataGridView3
             // 
             this.dataGridView3.BackgroundColor = System.Drawing.SystemColors.ScrollBar;
             this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView3.Location = new System.Drawing.Point(232, 140);
+            this.dataGridView3.Location = new System.Drawing.Point(232, 143);
             this.dataGridView3.Name = "dataGridView3";
+            this.dataGridView3.RowHeadersWidth = 62;
             this.dataGridView3.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView3.Size = new System.Drawing.Size(594, 150);
+            this.dataGridView3.Size = new System.Drawing.Size(594, 154);
             this.dataGridView3.TabIndex = 14;
             // 
             // comboBox1
             // 
             this.comboBox1.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.comboBox1.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Items.AddRange(new object[] {
             "buğday",
@@ -522,20 +566,21 @@ namespace planlama_oyunu
             "kömür",
             "petrol ",
             "odun"});
-            this.comboBox1.Location = new System.Drawing.Point(517, 93);
+            this.comboBox1.Location = new System.Drawing.Point(517, 95);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 23);
+            this.comboBox1.Size = new System.Drawing.Size(121, 24);
             this.comboBox1.TabIndex = 13;
             this.comboBox1.Text = "buğday";
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Red;
-            this.label1.Font = new System.Drawing.Font("Roboto Medium", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label1.Location = new System.Drawing.Point(428, 96);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label1.Location = new System.Drawing.Point(428, 99);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(83, 15);
+            this.label1.Size = new System.Drawing.Size(87, 16);
             this.label1.TabIndex = 12;
             this.label1.Text = "Ürün Seçin:";
             // 
@@ -543,26 +588,26 @@ namespace planlama_oyunu
             // 
             this.label7.AutoSize = true;
             this.label7.BackColor = System.Drawing.Color.Red;
-            this.label7.Font = new System.Drawing.Font("Roboto Medium", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label7.Location = new System.Drawing.Point(10, 348);
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label7.Location = new System.Drawing.Point(10, 357);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(147, 15);
+            this.label7.Size = new System.Drawing.Size(153, 16);
             this.label7.TabIndex = 10;
             this.label7.Text = "Satın Alma Detayları:";
             // 
             // textBox3
             // 
             this.textBox3.BackColor = System.Drawing.SystemColors.Info;
-            this.textBox3.Location = new System.Drawing.Point(8, 365);
+            this.textBox3.Location = new System.Drawing.Point(8, 375);
             this.textBox3.Multiline = true;
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(314, 89);
+            this.textBox3.Size = new System.Drawing.Size(314, 91);
             this.textBox3.TabIndex = 9;
             // 
             // istenenKgTxt
             // 
             this.istenenKgTxt.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.istenenKgTxt.Location = new System.Drawing.Point(538, 320);
+            this.istenenKgTxt.Location = new System.Drawing.Point(538, 328);
             this.istenenKgTxt.Name = "istenenKgTxt";
             this.istenenKgTxt.Size = new System.Drawing.Size(100, 20);
             this.istenenKgTxt.TabIndex = 7;
@@ -580,9 +625,9 @@ namespace planlama_oyunu
             // 
             this.button1.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.button1.Location = new System.Drawing.Point(747, 325);
+            this.button1.Location = new System.Drawing.Point(747, 333);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(79, 32);
+            this.button1.Size = new System.Drawing.Size(79, 33);
             this.button1.TabIndex = 8;
             this.button1.Text = "Satın Al";
             this.button1.UseVisualStyleBackColor = false;
@@ -592,10 +637,10 @@ namespace planlama_oyunu
             // 
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.Red;
-            this.label5.Font = new System.Drawing.Font("Roboto Medium", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label5.Location = new System.Drawing.Point(381, 322);
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label5.Location = new System.Drawing.Point(381, 330);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(148, 15);
+            this.label5.Size = new System.Drawing.Size(146, 16);
             this.label5.TabIndex = 6;
             this.label5.Text = "Miktar seçiniz(kg/L):";
             // 
@@ -603,10 +648,10 @@ namespace planlama_oyunu
             // 
             this.lbl_userID.AutoSize = true;
             this.lbl_userID.BackColor = System.Drawing.Color.Red;
-            this.lbl_userID.Font = new System.Drawing.Font("Roboto Medium", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lbl_userID.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.lbl_userID.Location = new System.Drawing.Point(425, 23);
             this.lbl_userID.Name = "lbl_userID";
-            this.lbl_userID.Size = new System.Drawing.Size(87, 15);
+            this.lbl_userID.Size = new System.Drawing.Size(89, 16);
             this.lbl_userID.TabIndex = 4;
             this.lbl_userID.Text = "Kullanıcı ID:";
             // 
@@ -615,21 +660,21 @@ namespace planlama_oyunu
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Controls.Add(this.tabPage4);
-            this.tabControl1.Location = new System.Drawing.Point(0, 29);
+            this.tabControl1.Location = new System.Drawing.Point(0, 39);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.Padding = new System.Drawing.Point(128, 4);
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(907, 490);
+            this.tabControl1.Size = new System.Drawing.Size(878, 493);
             this.tabControl1.TabIndex = 41;
             // 
             // tabPage4
             // 
             this.tabPage4.Controls.Add(this.groupBox4);
             this.tabPage4.Location = new System.Drawing.Point(4, 24);
-            this.tabPage4.Margin = new System.Windows.Forms.Padding(2);
+            this.tabPage4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(2);
-            this.tabPage4.Size = new System.Drawing.Size(899, 462);
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage4.Size = new System.Drawing.Size(870, 465);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Envanter";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -639,17 +684,77 @@ namespace planlama_oyunu
             this.groupBox4.BackColor = System.Drawing.Color.Thistle;
             this.groupBox4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("groupBox4.BackgroundImage")));
             this.groupBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.groupBox4.Controls.Add(this.dateTimePicker1);
+            this.groupBox4.Controls.Add(this.dateTimePicker4);
+            this.groupBox4.Controls.Add(this.dateTimePicker3);
+            this.groupBox4.Controls.Add(this.dateTimePicker2);
+            this.groupBox4.Controls.Add(this.button4);
+            this.groupBox4.Controls.Add(this.button3);
             this.groupBox4.Controls.Add(this.listwiev_item);
             this.groupBox4.Controls.Add(this.label19);
             this.groupBox4.Controls.Add(this.lbl_para);
             this.groupBox4.Controls.Add(this.label17);
             this.groupBox4.Location = new System.Drawing.Point(1, 0);
-            this.groupBox4.Margin = new System.Windows.Forms.Padding(2);
+            this.groupBox4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox4.Size = new System.Drawing.Size(902, 462);
+            this.groupBox4.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox4.Size = new System.Drawing.Size(902, 474);
             this.groupBox4.TabIndex = 8;
             this.groupBox4.TabStop = false;
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(791, 231);
+            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(67, 20);
+            this.dateTimePicker1.TabIndex = 47;
+            // 
+            // dateTimePicker4
+            // 
+            this.dateTimePicker4.Location = new System.Drawing.Point(711, 231);
+            this.dateTimePicker4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dateTimePicker4.Name = "dateTimePicker4";
+            this.dateTimePicker4.Size = new System.Drawing.Size(67, 20);
+            this.dateTimePicker4.TabIndex = 46;
+            // 
+            // dateTimePicker3
+            // 
+            this.dateTimePicker3.Location = new System.Drawing.Point(101, 231);
+            this.dateTimePicker3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dateTimePicker3.Name = "dateTimePicker3";
+            this.dateTimePicker3.Size = new System.Drawing.Size(67, 20);
+            this.dateTimePicker3.TabIndex = 45;
+            // 
+            // dateTimePicker2
+            // 
+            this.dateTimePicker2.Location = new System.Drawing.Point(21, 231);
+            this.dateTimePicker2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dateTimePicker2.Name = "dateTimePicker2";
+            this.dateTimePicker2.Size = new System.Drawing.Size(67, 20);
+            this.dateTimePicker2.TabIndex = 44;
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(734, 266);
+            this.button4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(107, 29);
+            this.button4.TabIndex = 42;
+            this.button4.Text = "Alış Raporu";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(39, 266);
+            this.button3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(107, 29);
+            this.button3.TabIndex = 41;
+            this.button3.Text = "Satış Raporu";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // listwiev_item
             // 
@@ -661,9 +766,9 @@ namespace planlama_oyunu
             this.columnHeader4});
             this.listwiev_item.FullRowSelect = true;
             this.listwiev_item.HideSelection = false;
-            this.listwiev_item.Location = new System.Drawing.Point(191, 79);
+            this.listwiev_item.Location = new System.Drawing.Point(191, 81);
             this.listwiev_item.Name = "listwiev_item";
-            this.listwiev_item.Size = new System.Drawing.Size(495, 321);
+            this.listwiev_item.Size = new System.Drawing.Size(495, 329);
             this.listwiev_item.TabIndex = 4;
             this.listwiev_item.UseCompatibleStateImageBehavior = false;
             this.listwiev_item.View = System.Windows.Forms.View.Details;
@@ -691,19 +796,19 @@ namespace planlama_oyunu
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label19.Location = new System.Drawing.Point(404, 51);
+            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label19.Location = new System.Drawing.Point(404, 52);
             this.label19.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(75, 15);
+            this.label19.Size = new System.Drawing.Size(80, 16);
             this.label19.TabIndex = 7;
             this.label19.Text = "Envanteriniz";
             // 
             // lbl_para
             // 
             this.lbl_para.AutoSize = true;
-            this.lbl_para.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lbl_para.Location = new System.Drawing.Point(131, 28);
+            this.lbl_para.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lbl_para.Location = new System.Drawing.Point(131, 29);
             this.lbl_para.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_para.Name = "lbl_para";
             this.lbl_para.Size = new System.Drawing.Size(24, 18);
@@ -713,8 +818,8 @@ namespace planlama_oyunu
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label17.Location = new System.Drawing.Point(17, 28);
+            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label17.Location = new System.Drawing.Point(17, 29);
             this.label17.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(56, 18);
@@ -723,11 +828,12 @@ namespace planlama_oyunu
             // 
             // button2
             // 
+            this.button2.AccessibleRole = System.Windows.Forms.AccessibleRole.ScrollBar;
             this.button2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button2.BackgroundImage")));
             this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button2.Location = new System.Drawing.Point(867, -6);
+            this.button2.Location = new System.Drawing.Point(826, 3);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(40, 29);
+            this.button2.Size = new System.Drawing.Size(40, 30);
             this.button2.TabIndex = 42;
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click_1);
@@ -737,11 +843,11 @@ namespace planlama_oyunu
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.ClientSize = new System.Drawing.Size(901, 519);
+            this.ClientSize = new System.Drawing.Size(874, 527);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.tabControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Form_bilgiler";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "HESAP";
@@ -823,5 +929,14 @@ namespace planlama_oyunu
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dataGridView3;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnTalepOlustur;
+        private System.Windows.Forms.TextBox istenenFiyatTxt;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.DateTimePicker dateTimePicker3;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dateTimePicker4;
     }
 }

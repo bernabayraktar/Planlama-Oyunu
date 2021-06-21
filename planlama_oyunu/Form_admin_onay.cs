@@ -17,15 +17,16 @@ namespace planlama_oyunu
         {
             InitializeComponent();
         }
-        OleDbConnection baglantı = new OleDbConnection("Provider = Microsoft.Jet.OLEDB.4.0; Data Source = planlama oyunu db.mdb");
+        OleDbConnection baglanti = new OleDbConnection("Provider = Microsoft.Jet.OLEDB.4.0; Data Source = planlama oyunu db.mdb");
         OleDbCommand komut = new OleDbCommand();
         admin admin = new admin();
+        itemler itemler = new itemler();
         private void parabasvurugöster()
         {
             listView_para_sorgu.Items.Clear();
-            baglantı.Open();
+            baglanti.Open();
             OleDbCommand komut = new OleDbCommand();
-            komut.Connection = baglantı;
+            komut.Connection = baglanti;
             komut.CommandText = ("select * from para_başvuru");
             OleDbDataReader güncelle = komut.ExecuteReader();
             while (güncelle.Read())
@@ -35,10 +36,10 @@ namespace planlama_oyunu
                 ekle.SubItems.Add(güncelle["para_miktar"].ToString());
                 listView_para_sorgu.Items.Add(ekle);
             }
-            baglantı.Close();
+            baglanti.Close();
         }
-      
-        
+
+
         private void temizle()
         {
             txtlist_ID.Clear();
@@ -56,9 +57,9 @@ namespace planlama_oyunu
         private void itembasvurugöster()
         {
             listView_item_sorgu.Items.Clear();
-            baglantı.Open();
+            baglanti.Open();
             OleDbCommand komut2 = new OleDbCommand();
-            komut2.Connection = baglantı;
+            komut2.Connection = baglanti;
             komut2.CommandText = "select * from item_başvuru";
             OleDbDataReader güncelle2 = komut2.ExecuteReader();
             while (güncelle2.Read())
@@ -70,30 +71,32 @@ namespace planlama_oyunu
                 ekle2.SubItems.Add(güncelle2["item_fiyat"].ToString());
                 listView_item_sorgu.Items.Add(ekle2);
             }
-            baglantı.Close();
+            baglanti.Close();
         }
         private void Form_admin_onay_Load(object sender, EventArgs e)
         {
             itembasvurugöster();
             parabasvurugöster();
+
+           
         }
 
         private void listView_para_sorgu_SelectedIndexChanged(object sender, EventArgs e)
         {
-            foreach(ListViewItem lst in listView_para_sorgu.SelectedItems)
+            foreach (ListViewItem lst in listView_para_sorgu.SelectedItems)
             {
                 txtlist_ID.Text = lst.SubItems[0].Text;
                 txtlist_transfer_Para.Text = lst.SubItems[1].Text;
             }
-            baglantı.Open();
-            komut.Connection = baglantı;
-            komut.CommandText = "select * from para where userID like '" +txtlist_ID.Text + "'";
+            baglanti.Open();
+            komut.Connection = baglanti;
+            komut.CommandText = "select * from para where userID like '" + txtlist_ID.Text + "'";
             OleDbDataReader oku = komut.ExecuteReader();
-            while(oku.Read())
+            while (oku.Read())
             {
                 txtlist_mevcut_Para.Text = oku["para_miktar"].ToString();
             }
-            baglantı.Close();
+            baglanti.Close();
             int değer;
             değer = Convert.ToInt32(txtlist_transfer_Para.Text) + Convert.ToInt32(txtlist_mevcut_Para.Text);
             txt_güncel_para.Text = değer.ToString();
@@ -101,10 +104,10 @@ namespace planlama_oyunu
 
         private void btnParaOnay_Click(object sender, EventArgs e)
         {
-            
+
             admin.para_onay(Convert.ToInt32(txtlist_ID.Text), Convert.ToInt32(txt_güncel_para.Text));
-            MessageBox.Show(txtlist_ID.Text + "userID li kullanıcının parasını"+ txt_güncel_para.Text +"olarak güncellediniz.");
-            
+            MessageBox.Show(txtlist_ID.Text + "userID li kullanıcının parasını" + txt_güncel_para.Text + "olarak güncellediniz.");
+
             admin.vei_temizle_para(Convert.ToInt32(txtlist_ID.Text));
             temizle();
             parabasvurugöster();
@@ -112,7 +115,7 @@ namespace planlama_oyunu
 
         private void btnParaRed_Click(object sender, EventArgs e)
         {
-            
+
             admin.vei_temizle_para(Convert.ToInt32(txtlist_ID.Text));
             MessageBox.Show(txtlist_ID.Text + "userID li kullanıcının para başvurusunu reddettiniz.");
             temizle();
@@ -121,7 +124,7 @@ namespace planlama_oyunu
 
         private void listView_item_sorgu_SelectedIndexChanged(object sender, EventArgs e)
         {
-            foreach(ListViewItem lst in listView_item_sorgu.SelectedItems)
+            foreach (ListViewItem lst in listView_item_sorgu.SelectedItems)
             {
                 txt_list_item_ID.Text = lst.SubItems[0].Text;
                 txt_list_item_itemad.Text = lst.SubItems[1].Text;
@@ -132,10 +135,10 @@ namespace planlama_oyunu
 
         private void btn_item_onay_Click(object sender, EventArgs e)
         {
-            
             admin.item_onay(Convert.ToInt32(txt_list_item_ID.Text), txt_list_item_itemad.Text, Convert.ToInt32(txt_list_item_itemfiyat.Text), Convert.ToInt32(txt_list_item_itemmiktar.Text));
+            itemler.item_kontrol(Convert.ToInt32(txt_list_item_ID.Text), txt_list_item_itemad.Text, Convert.ToInt32(txt_list_item_itemfiyat.Text), Convert.ToInt32(txt_list_item_itemmiktar.Text));
             MessageBox.Show(txt_list_item_ID.Text + " ID li kullanıcının item başvurusunu onayladınız");
-            
+
             admin.veri_temizle_item(Convert.ToInt32(txt_list_item_ID.Text));
             temizle_item();
             itembasvurugöster();
@@ -143,7 +146,7 @@ namespace planlama_oyunu
 
         private void btn_item_red_Click(object sender, EventArgs e)
         {
-            
+
             admin.veri_temizle_item(Convert.ToInt32(txt_list_item_ID.Text));
             MessageBox.Show(txt_list_item_ID.Text + " ID li kullanıcının item başvurusunu reddettiniz");
             temizle_item();

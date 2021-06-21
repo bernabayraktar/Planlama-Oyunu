@@ -8,7 +8,7 @@ namespace planlama_oyunu
 {
     class para
     {
-        OleDbConnection bağlantı = new OleDbConnection("Provider = Microsoft.Jet.OLEDB.4.0; Data Source = planlama oyunu db.mdb");
+        OleDbConnection baglanti = new OleDbConnection("Provider = Microsoft.Jet.OLEDB.4.0; Data Source = planlama oyunu db.mdb");
         public int para_userID { get; set; }
         public int para_miktar { get; set; }
 
@@ -16,10 +16,10 @@ namespace planlama_oyunu
         {
             this.para_userID = id;
             this.para_miktar = para_miktar;
-            bağlantı.Open();
+            baglanti.Open();
             OleDbCommand komut = new OleDbCommand("insert into para_başvuru (userID,para_miktar) values('" + this.para_userID + "','" + this.para_miktar + "')", bağlantı);
             komut.ExecuteNonQuery();
-            bağlantı.Close();
+            baglanti.Close();
         }
     }
 }

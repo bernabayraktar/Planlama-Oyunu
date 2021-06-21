@@ -9,7 +9,7 @@ namespace planlama_oyunu
 {   
     class kullanıcı
     {
-        OleDbConnection bağlantı = new OleDbConnection("Provider = Microsoft.Jet.OLEDB.4.0; Data Source = planlama oyunu db.mdb");
+        OleDbConnection baglanti = new OleDbConnection("Provider = Microsoft.Jet.OLEDB.4.0; Data Source = planlama oyunu db.mdb");
         private itemler itemler;
         private para Para;
         public int userID { get; set; }
@@ -36,10 +36,10 @@ namespace planlama_oyunu
             this.telefon = telefon;
             this.e_mail = mail;
             this.adres = adres;
-            bağlantı.Open();
-            OleDbCommand komut=new OleDbCommand("insert into kullanıcılar (ad,soyad,kullanıcı,şifre,tc,telefon,email,adres) values('" + this.ad + "','" + this.soy_ad + "','" + this.kullanıcı_ad + "','" + this.password + "','" + this.tc + "','" + this.telefon + "','" + this.e_mail + "','" + this.adres + "')", bağlantı);
+            baglanti.Open();
+            OleDbCommand komut=new OleDbCommand("insert into kullanıcılar (ad,soyad,kullanıcı,şifre,tc,telefon,email,adres) values('" + this.ad + "','" + this.soy_ad + "','" + this.kullanıcı_ad + "','" + this.password + "','" + this.tc + "','" + this.telefon + "','" + this.e_mail + "','" + this.adres + "')", baglanti);
             komut.ExecuteNonQuery();
-            bağlantı.Close();
+            baglanti.Close();
         }
         public void kullanıcı_güncelle(string id,string ad, string soyad, string kullanıcı, string password, string tc, string telefon, string mail, string adres)
         {
@@ -52,10 +52,10 @@ namespace planlama_oyunu
             this.e_mail = mail;
             this.adres = adres;
 
-            bağlantı.Open();
+            baglanti.Open();
             
             string sorgu = "update kullanıcılar set ad=@ad,soyad=@soyad,kullanıcı=@kullanıcı,şifre=@şifre,tc=@tc,telefon=@telefon,email=@email,adres=@adres where userID=@ıd";
-            OleDbCommand komut = new OleDbCommand(sorgu,bağlantı);
+            OleDbCommand komut = new OleDbCommand(sorgu,baglanti);
             // komut = new OleDbCommand(sorgu, bağlantı);
             komut.Parameters.AddWithValue("@ad", this.ad);
             komut.Parameters.AddWithValue("@soyad", this.soy_ad);
@@ -68,7 +68,7 @@ namespace planlama_oyunu
             komut.Parameters.AddWithValue("@ıd", id);
 
             komut.ExecuteNonQuery();
-            bağlantı.Close();
+            baglanti.Close();
         }
         
         
